@@ -1,7 +1,7 @@
 /*
  * Debugger support functions
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  */
 
 #ifndef _NTDBG_H

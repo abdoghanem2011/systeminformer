@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -80,7 +80,7 @@ namespace CustomBuildTool
                     BuildFlags.Build32bit | BuildFlags.Build64bit | BuildFlags.BuildArm64bit |
                     BuildFlags.BuildVerbose | BuildFlags.BuildApi;
 
-                if (!Build.BuildSolution("SystemInformer.sln", flags))
+                if (!Build.BuildSolution("SysInform.sln", flags))
                     Environment.Exit(1);
 
                 Build.ShowBuildStats();
@@ -195,7 +195,7 @@ namespace CustomBuildTool
                 }
 
                 // Build main project
-                if (!Build.BuildSolutionCMake("SystemInformer", generator, config, toolchain, flags))
+                if (!Build.BuildSolutionCMake("SysInform", generator, config, toolchain, flags))
                     Environment.Exit(1);
 
                 // Build plugins
@@ -221,7 +221,7 @@ namespace CustomBuildTool
 
                 Build.SetupBuildEnvironment(false);
 
-                if (!Build.BuildSolution("SystemInformer.sln", flags))
+                if (!Build.BuildSolution("SysInform.sln", flags))
                     Environment.Exit(1);
                 if (!Build.BuildSolution("plugins\\Plugins.sln", flags))
                     Environment.Exit(1);
@@ -249,7 +249,7 @@ namespace CustomBuildTool
                 Build.SetupBuildEnvironment(true);
                 Build.CopySourceLink(true);
 
-                if (!Build.BuildSolution("SystemInformer.sln", flags))
+                if (!Build.BuildSolution("SysInform.sln", flags))
                     Environment.Exit(1);
                 if (!Build.BuildSolution("plugins\\Plugins.sln", flags))
                     Environment.Exit(1);
@@ -327,7 +327,7 @@ namespace CustomBuildTool
                 Build.SetupBuildEnvironment(true);
                 Build.CopySourceLink(true);
 
-                if (!Build.BuildSolution("SystemInformer.sln", flags))
+                if (!Build.BuildSolution("SysInform.sln", flags))
                     Environment.Exit(1);
                 if (!Build.BuildSolution("plugins\\Plugins.sln", flags))
                     Environment.Exit(1);
@@ -416,7 +416,7 @@ namespace CustomBuildTool
 
                 Build.SetupBuildEnvironment(true);
 
-                if (!Build.BuildSolution("SystemInformer.sln", flags))
+                if (!Build.BuildSolution("SysInform.sln", flags))
                     Environment.Exit(1);
                 if (!Build.BuildSolution("plugins\\Plugins.sln", flags))
                     Environment.Exit(1);
@@ -437,7 +437,7 @@ namespace CustomBuildTool
 
                 Build.SetupBuildEnvironment(true);
 
-                if (!Build.BuildSolution("SystemInformer.sln", flags))
+                if (!Build.BuildSolution("SysInform.sln", flags))
                     Environment.Exit(1);
                 if (!Build.BuildSolution("plugins\\Plugins.sln", flags))
                     Environment.Exit(1);

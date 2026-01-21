@@ -26,8 +26,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PERSONAL_ACCESS_TOKEN : ${{ secrets.CLA_ASSISTANT_TOKEN }}
         with:
-          path-to-signatures: 'systeminformer/cla-signatures.json'
-          path-to-document: 'https://github.com/winsiderss/systeminformer/blob/master/CLA.md'
+          path-to-signatures: 'SysInform/cla-signatures.json'
+          path-to-document: 'https://github.com/winsiderss/SysInform/blob/master/CLA.md'
           branch: 'main'
           remote-organization-name: 'winsiderss'
           remote-repository-name: 'winsiderss-cla'

@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <SystemInformerRoot>$(MSBuildThisFileDirectory)</SystemInformerRoot>
+    <SysInformRoot>$(MSBuildThisFileDirectory)</SysInformRoot>
   </PropertyGroup>
   <Import Project="packages\Microsoft.Windows.SDK.CPP.10.0.26100.7463\build\native\Microsoft.Windows.SDK.cpp.props" Condition="Exists('packages\Microsoft.Windows.SDK.CPP.10.0.26100.7463\build\native\Microsoft.Windows.SDK.cpp.props')"/>
   <Import Project="packages\Microsoft.Windows.SDK.CPP.x86.10.0.26100.7463\build\native\Microsoft.Windows.SDK.cpp.x86.props" Condition="Exists('packages\Microsoft.Windows.SDK.CPP.x86.10.0.26100.7463\build\native\Microsoft.Windows.SDK.cpp.x86.props') and '$(Platform)' == 'Win32'"/>

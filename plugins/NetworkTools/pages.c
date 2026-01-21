@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -123,7 +123,7 @@ HRESULT CALLBACK RestartDbTaskDialogCallbackProc(
         {
             if ((LONG)wParam == IDYES)
             {
-                SystemInformer_PrepareForEarlyShutdown();
+                SysInform_PrepareForEarlyShutdown();
 
                 if (NT_SUCCESS(PhShellProcessHacker(
                     context->ParentWindowHandle,
@@ -135,11 +135,11 @@ HRESULT CALLBACK RestartDbTaskDialogCallbackProc(
                     NULL
                     )))
                 {
-                    SystemInformer_Destroy();
+                    SysInform_Destroy();
                 }
                 else
                 {
-                    SystemInformer_CancelEarlyShutdown();
+                    SysInform_CancelEarlyShutdown();
                 }
             }
         }
@@ -248,7 +248,7 @@ VOID ShowDbInstallRestartDialog(
 
     config.pszWindowTitle = L"Network Tools - GeoLite Updater";
     config.pszMainInstruction = L"The GeoLite database has been updated.";
-    config.pszContent = L"Please restart System Informer for the changes to take effect...";
+    config.pszContent = L"Please restart SysInform for the changes to take effect...";
 
     PhTaskDialogNavigatePage(Context->DialogHandle, &config);
 }

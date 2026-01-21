@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -63,7 +63,7 @@ PNETWORK_GEODB_UPDATE_CONTEXT GeoLiteCreateUpdateContext(
     }
 
     context = PhCreateObjectZero(sizeof(NETWORK_GEODB_UPDATE_CONTEXT), UpdateContextType);
-    context->PortableMode = !!SystemInformer_IsPortableMode();
+    context->PortableMode = !!SysInform_IsPortableMode();
 
     return context;
 }
@@ -79,7 +79,7 @@ PPH_STRING GeoLiteCreateUserAgentString(
     ULONG revisionVersion;
 
     PhGetPhVersionNumbers(&majorVersion, &minorVersion, &buildVersion, &revisionVersion);
-    PhInitFormatS(&format[0], L"SystemInformer_");
+    PhInitFormatS(&format[0], L"SysInform_");
     PhInitFormatU(&format[1], majorVersion);
     PhInitFormatC(&format[2], L'.');
     PhInitFormatU(&format[3], minorVersion);
@@ -453,7 +453,7 @@ BOOLEAN GeoLiteMoveUpdateToFile(
 
     // Get the current database filename.
 
-    if (SystemInformer_IsPortableMode())
+    if (SysInform_IsPortableMode())
     {
         if (GeoLiteDatabaseType)
             existingFileName = PhGetApplicationDirectoryFileName(&GeoDbCityFileName, FALSE);
@@ -703,14 +703,14 @@ NTSTATUS GeoLiteUpdateTaskDialogThread(
 
     //SHELLEXECUTEINFO info = { sizeof(SHELLEXECUTEINFO) };
     //
-    //info.lpFile = L"SystemInformer.exe";
+    //info.lpFile = L"SysInform.exe";
     //info.lpParameters = L"-plugin " PLUGIN_NAME L":UpdateGeoIp";
     //info.fMask = SEE_MASK_NOCLOSEPROCESS | SEE_MASK_NOASYNC;
     //info.nShow = SW_SHOWNORMAL;
     //info.hwnd = Parameter;
     //info.lpVerb = L"runas";
     //
-    //SystemInformer_PrepareForEarlyShutdown();
+    //SysInform_PrepareForEarlyShutdown();
     //
     //if (ShellExecuteEx(&info))
     //{
@@ -733,7 +733,7 @@ NTSTATUS GeoLiteUpdateTaskDialogThread(
     //                NULL
     //                );
     //
-    //            SystemInformer_Destroy();
+    //            SysInform_Destroy();
     //        }
     //    }
     //
@@ -741,7 +741,7 @@ NTSTATUS GeoLiteUpdateTaskDialogThread(
     //}
     //else
     //{
-    //    SystemInformer_CancelEarlyShutdown();
+    //    SysInform_CancelEarlyShutdown();
     //}
 }
 
@@ -798,7 +798,7 @@ VOID ShowGeoLiteUpdateDialog(
         config.pszContent =
             L"A license key and account number are required to download GeoLite database updates and either the key or number are not configured.\n\n"
             L"GeoLite license keys and accounts are free. If you're unsure how to create keys then please review the documentation here: <a href=\"https://support.maxmind.com/hc/en-us/articles/4407111582235-Generate-a-License-Key\">Generate-a-License-Key</a>\n\n"
-            L"Once you've created the key you can copy/paste the text into the Options window > NetworkTools settings and System Informer can start downloading GeoLite database updates.\n\n"
+            L"Once you've created the key you can copy/paste the text into the Options window > NetworkTools settings and SysInform can start downloading GeoLite database updates.\n\n"
             L"Special thanks to MaxMind (<a href=\"https://www.maxmind.com\">https://www.maxmind.com</a>) for continuing free GeoLite services <3";
 
         PhShowTaskDialog(&config, NULL, NULL, NULL);

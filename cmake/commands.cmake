@@ -1,7 +1,7 @@
 #
 # Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
 #
-# This file is part of System Informer.
+# This file is part of SysInform.
 #
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR})
@@ -23,7 +23,7 @@ set(SI_UM_CLANG_NO_DIAGNOSTICS
 )
 
 #
-# Helper function for setting up a System Informer target
+# Helper function for setting up a SysInform target
 #
 function(_si_set_target_defaults target)
     set(options PLUGIN)
@@ -35,7 +35,7 @@ function(_si_set_target_defaults target)
         message(FATAL_ERROR "Invalid target type: ${arg_TYPE}")
     endif()
 
-    target_link_options(${target} PRIVATE /NATVIS:${SI_ROOT}/SystemInformer.natvis)
+    target_link_options(${target} PRIVATE /NATVIS:${SI_ROOT}/SysInform.natvis)
 
     if(NOT SI_OUTPUT_DIR STREQUAL "" AND NOT SI_OUTPUT_DIR STREQUAL "OFF")
         if(arg_PLUGIN)
@@ -93,7 +93,7 @@ function(_si_set_target_defaults target)
         if(SI_WITH_WPP_KERNEL)
             si_target_tracewpp(${target} WPP_KERNEL_MODE
                 WPP_EXT ".c.cpp.h.hpp" WPP_PRESERVE_EXT
-                WPP_SCAN "${CMAKE_SOURCE_DIR}/KSystemInformer/include/trace.h"
+                WPP_SCAN "${CMAKE_SOURCE_DIR}/KSysInform/include/trace.h"
                 ${_target_sources}
             )
         else()
@@ -104,7 +104,7 @@ function(_si_set_target_defaults target)
         if(SI_WITH_WPP_KERNEL)
             si_target_tracewpp(${target} WPP_KERNEL_MODE
                 WPP_EXT ".c.cpp.h.hpp" WPP_PRESERVE_EXT
-                WPP_SCAN "${CMAKE_SOURCE_DIR}/KSystemInformer/include/trace.h"
+                WPP_SCAN "${CMAKE_SOURCE_DIR}/KSysInform/include/trace.h"
                 ${_target_sources}
             )
         else()
@@ -113,7 +113,7 @@ function(_si_set_target_defaults target)
     endif()
 
     if (arg_PLUGIN)
-        target_link_libraries(${target} PRIVATE SystemInformer)
+        target_link_libraries(${target} PRIVATE SysInform)
         target_include_directories(${target} PRIVATE "${SI_ROOT}/plugins/include")
     endif()
 
@@ -125,7 +125,7 @@ function(_si_set_target_defaults target)
 endfunction()
 
 #
-# add_library for user mode System Informer libraries
+# add_library for user mode SysInform libraries
 #
 function(si_add_library target)
     add_library(${target} ${ARGN})
@@ -133,7 +133,7 @@ function(si_add_library target)
 endfunction()
 
 #
-# add_executable for user mode System Informer executables
+# add_executable for user mode SysInform executables
 #
 function(si_add_executable target)
     add_executable(${target} ${ARGN})
@@ -141,7 +141,7 @@ function(si_add_executable target)
 endfunction()
 
 #
-# add_library for System Informer plugins
+# add_library for SysInform plugins
 #
 function(si_add_plugin target)
     add_library(${target} SHARED ${ARGN})
@@ -149,7 +149,7 @@ function(si_add_plugin target)
 endfunction()
 
 #
-# add_library for kernel mode System Informer libraries
+# add_library for kernel mode SysInform libraries
 #
 function(si_add_kernel_library target)
     add_library(${target} ${ARGN})
@@ -157,7 +157,7 @@ function(si_add_kernel_library target)
 endfunction()
 
 #
-# add_executable for kernel mode System Informer drivers
+# add_executable for kernel mode SysInform drivers
 #
 function(si_add_kernel_driver target)
     add_executable(${target} ${ARGN})

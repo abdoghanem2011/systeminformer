@@ -65,7 +65,7 @@
     </Manifest>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\SystemInformer\SystemInformer.ico">
+    <Image Include="..\..\SysInform\SysInform.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

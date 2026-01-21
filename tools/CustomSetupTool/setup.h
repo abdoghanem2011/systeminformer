@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -32,7 +32,7 @@
 #include <uxtheme.h>
 
 #include "resource.h"
-#include "..\..\SystemInformer\include\phappres.h"
+#include "..\..\SysInform\include\phappres.h"
 
 #define SETUP_SHOWDIALOG (WM_APP + 1)
 #define SETUP_SHOWINSTALL (WM_APP + 2)

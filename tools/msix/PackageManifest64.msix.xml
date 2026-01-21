@@ -10,17 +10,17 @@
     xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
     xmlns:desktop6="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
     IgnorableNamespaces="uap rescap uap3 uap5 uap10 uap13 desktop desktop6">
-    <Identity Name="SystemInformer" Version="3.0.0.0" ProcessorArchitecture="x64" Publisher="CN=Winsider Seminars &amp; Solutions Inc., O=Winsider Seminars &amp; Solutions Inc., L=Montréal, S=Quebec, C=CA" />
+    <Identity Name="SysInform" Version="3.0.0.0" ProcessorArchitecture="x64" Publisher="CN=Winsider Seminars &amp; Solutions Inc., O=Winsider Seminars &amp; Solutions Inc., L=Montréal, S=Quebec, C=CA" />
     <Properties>
-        <DisplayName>System Informer</DisplayName>
-        <PublisherDisplayName>System Informer</PublisherDisplayName>
+        <DisplayName>SysInform</DisplayName>
+        <PublisherDisplayName>SysInform</PublisherDisplayName>
         <Description>A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware.</Description>
         <Logo>Assets\Square150x150Logo.png</Logo>
         <uap10:PackageIntegrity>
            <uap10:Content Enforcement="on" />
         </uap10:PackageIntegrity>
         <uap13:AutoUpdate>
-            <uap13:AppInstaller File="systeminformer.appinstaller" />
+            <uap13:AppInstaller File="SysInform.appinstaller" />
         </uap13:AutoUpdate>
     </Properties>
     <Resources>
@@ -35,17 +35,17 @@
     </Capabilities>
     <Applications>
         <Application 
-            Id="SystemInformer" 
-            Executable="SystemInformer.exe" 
+            Id="SysInform" 
+            Executable="SysInform.exe" 
             EntryPoint="Windows.FullTrustApplication" 
             uap10:RuntimeBehavior="packagedClassicApp" 
             uap10:TrustLevel="mediumIL">
             <uap:VisualElements
                 BackgroundColor="transparent"
-                DisplayName="System Informer"
+                DisplayName="SysInform"
                 Square150x150Logo="Assets\Square150x150Logo.png"
                 Square44x44Logo="Assets\Square44x44Logo.png"
-                Description="System Informer">
+                Description="SysInform">
                 <uap:DefaultTile>
                     <uap:ShowNameOnTiles>
                         <uap:ShowOn Tile="square150x150Logo" />
@@ -56,7 +56,7 @@
             <Extensions>
                 <uap3:Extension 
                     Category="windows.appExecutionAlias" 
-                    Executable="SystemInformer.exe"
+                    Executable="SysInform.exe"
                     EntryPoint="Windows.FullTrustApplication" 
                     uap10:RuntimeBehavior="packagedClassicApp"
                     uap10:TrustLevel="mediumIL">

@@ -33,8 +33,8 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(CRT_IncludePath);$(KM_IncludePath);$(KIT_SHARED_IncludePath)</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SystemInformerRoot)phnt\include\</AdditionalIncludeDirectories>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SystemInformerRoot)kphlib\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SysInformRoot)phnt\include\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(SysInformRoot)kphlib\include\</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(ProjectDir)include\</AdditionalIncludeDirectories>
       <AdditionalOptions>/kernel /utf-8 /INTEGRITYCHECK /d1nodatetime %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(Platform)'=='x64'">/d2guardretpoline %(AdditionalOptions)</AdditionalOptions>
@@ -66,7 +66,7 @@
     <Link>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);$(OutDir)</AdditionalLibraryDirectories>
       <AdditionalOptions>/INTEGRITYCHECK /DEPENDENTLOADFLAG:0x800 /FILEALIGN:0x1000 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalOptions>/NATVIS:$(SystemInformerRoot)SystemInformer.natvis %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/NATVIS:$(SysInformRoot)SysInform.natvis %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(Platform)'=='x64'">/guard:retpoline %(AdditionalOptions)</AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)'=='Release'">/BREPRO /NOVCFEATURE /NOCOFFGRPINFO %(AdditionalOptions)</AdditionalOptions>
       <CETCompat Condition="'$(Platform)'!='ARM64'">true</CETCompat>
@@ -102,7 +102,7 @@
           <TraceWppCmd>$(TraceWppCmd) -preserveext:.c.cpp.h.hpp</TraceWppCmd>
           <TraceWppCmd>$(TraceWppCmd) -I"$(WindowsSdkDir)bin\$(TargetPlatformVersion)\WppConfig\Rev1"</TraceWppCmd>
           <TraceWppCmd>$(TraceWppCmd) -odir:"$(IntDir)tmh"</TraceWppCmd>
-          <TraceWppCmd>$(TraceWppCmd) -scan:"$(SystemInformerRoot)KSystemInformer\include\trace.h"</TraceWppCmd>
+          <TraceWppCmd>$(TraceWppCmd) -scan:"$(SysInformRoot)KSysInform\include\trace.h"</TraceWppCmd>
       </PropertyGroup>
       <Exec Command="$(TraceWppCmd) @(ClInclude->'&quot;%(FullPath)&quot;', ' ') @(ClCompile->'&quot;%(FullPath)&quot;', ' ')"/>
   </Target>

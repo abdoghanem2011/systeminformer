@@ -15,7 +15,7 @@ We appreciate responsible disclosure efforts and are committed to acknowledging
 your contributions.
 
 If you discover a security issue, please send a report by emailing
-security@systeminformer.com or security@systeminformer.io.
+security@SysInform.com or security@SysInform.io.
 
 The System Informer team will acknowledge your email within 48 hours, and will
 send a more detailed response indicating the next steps in handling your report.

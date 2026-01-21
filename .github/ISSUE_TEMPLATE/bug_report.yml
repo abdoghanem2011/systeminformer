@@ -29,7 +29,7 @@ body:
     attributes:
       label: Environment (optional)
       placeholder: |
-        System Informer version
+        SysInform version
         Windows version
         Any other information?
       render: shell

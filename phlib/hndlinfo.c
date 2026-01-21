@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -151,7 +151,7 @@ NTSTATUS PhGetObjectBasicInformation(
 
         if (NT_SUCCESS(status))
         {
-            // The object was referenced in KSystemInformer, so we need to subtract 1 from the
+            // The object was referenced in KSysInform, so we need to subtract 1 from the
             // pointer count.
             BasicInformation->PointerCount -= 1;
         }

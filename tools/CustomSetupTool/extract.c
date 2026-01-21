@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -183,7 +183,7 @@ NTSTATUS CALLBACK SetupExtractBuild(
 
         fileName = PhConvertUtf8ToUtf16(zipFileStat.m_filename);
 
-        if (PhFindStringInString(fileName, 0, L"SystemInformer.exe.settings.xml") != SIZE_MAX)
+        if (PhFindStringInString(fileName, 0, L"SysInform.exe.settings.xml") != SIZE_MAX)
             continue;
         if (PhFindStringInString(fileName, 0, L"usernotesdb.xml") != SIZE_MAX)
             continue;
@@ -225,7 +225,7 @@ NTSTATUS CALLBACK SetupExtractBuild(
 
         fileName = PhConvertUtf8ToUtf16(zipFileStat.m_filename);
 
-        if (PhFindStringInString(fileName, 0, L"SystemInformer.exe.settings.xml") != SIZE_MAX)
+        if (PhFindStringInString(fileName, 0, L"SysInform.exe.settings.xml") != SIZE_MAX)
             continue;
         if (PhFindStringInString(fileName, 0, L"usernotesdb.xml") != SIZE_MAX)
             continue;

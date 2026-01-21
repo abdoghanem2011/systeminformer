@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -2327,7 +2327,7 @@ static NTSTATUS PhpFixupLoaderEntryImageDelayImports(
 
         if (PhEqualBytesZ(importName, ImportDllName, TRUE))
         {
-            if (PhEqualBytesZ(importName, "SystemInformer.exe", FALSE))
+            if (PhEqualBytesZ(importName, "SysInform.exe", FALSE))
             {
                 importBaseAddress = NtCurrentImageBase();
                 status = STATUS_SUCCESS;
@@ -2854,17 +2854,17 @@ NTSTATUS PhLoadPluginImage(
     status = PhpFixupLoaderEntryImageImports(
         imageBaseAddress,
         imageNtHeaders,
-        "SystemInformer.exe"
+        "SysInform.exe"
         );
 
     if (!NT_SUCCESS(status))
         goto CleanupExit;
 
-    //status = PhLoaderEntryLoadAllImportsForDll(imageBaseAddress, "SystemInformer.exe");
+    //status = PhLoaderEntryLoadAllImportsForDll(imageBaseAddress, "SysInform.exe");
     status = PhpFixupLoaderEntryImageDelayImports(
         imageBaseAddress,
         imageNtHeaders,
-        "SystemInformer.exe"
+        "SysInform.exe"
         );
 
     if (!NT_SUCCESS(status))

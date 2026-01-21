@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -87,7 +87,7 @@ VOID RebarCreateOrUpdateWindow(
     {
         if (!ToolBarImageList || DpiChanged)
         {
-            LONG windowDpi = SystemInformer_GetWindowDpi();
+            LONG windowDpi = SysInform_GetWindowDpi();
 
             if (ToolStatusConfig.ToolBarLargeIcons)
             {
@@ -147,7 +147,7 @@ VOID RebarCreateOrUpdateWindow(
             SendMessage(ToolBarHandle, TB_SETIMAGELIST, 0, (LPARAM)ToolBarImageList);
         }
 
-        if (ToolbarWindowFont = SystemInformer_GetFont())
+        if (ToolbarWindowFont = SysInform_GetFont())
         {
             // Configure the toolbar font.
             SetWindowFont(ToolBarHandle, ToolbarWindowFont, FALSE);
@@ -297,7 +297,7 @@ VOID RebarCreateOrUpdateWindow(
             if (!RebarBandExists(REBAR_BAND_ID_SEARCHBOX))
             {
                 LONG height = RebarGetRowHeight(REBAR_BAND_ID_TOOLBAR);
-                LONG scale = SystemInformer_GetWindowDpi();
+                LONG scale = SysInform_GetWindowDpi();
 
                 RebarBandInsert(
                     REBAR_BAND_ID_SEARCHBOX,
@@ -717,7 +717,7 @@ VOID ToolbarLoadDefaultButtonSettings(
     VOID
     )
 {
-    LONG dpiValue = SystemInformer_GetWindowDpi();
+    LONG dpiValue = SysInform_GetWindowDpi();
 
     // Pre-cache the images in the Toolbar array.
 
@@ -786,7 +786,7 @@ VOID ToolbarLoadButtonSettings(
     }
 
     count = (ULONG)countInteger;
-    dpiValue = SystemInformer_GetWindowDpi();
+    dpiValue = SysInform_GetWindowDpi();
 
     // Allocate the button array
     buttonArray = PhAllocateStack(count * sizeof(TBBUTTON));

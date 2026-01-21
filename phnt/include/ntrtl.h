@@ -1,7 +1,7 @@
 /*
  * RTL support functions
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  */
 
 #ifndef _NTRTL_H
@@ -12833,7 +12833,7 @@ RtlQueryProcessAvailableCpusCount(
 /*
  * RTL forward symbol typedefs
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  */
 #ifndef _NTRTL_FWD_H
 #define _NTRTL_FWD_H

@@ -33,15 +33,15 @@ if exist "%VSINSTALLPATH%\VC\Auxiliary\Build\vcvarsall.bat" (
 
 echo:
 
-msbuild /m SystemInformer.sln -t:rebuild -p:Configuration=Debug -p:Platform=Win32 -verbosity:%TLV% -terminalLogger:%TLG%
+msbuild /m SysInform.sln -t:rebuild -p:Configuration=Debug -p:Platform=Win32 -verbosity:%TLV% -terminalLogger:%TLG%
 if %ERRORLEVEL% neq 0 goto end
 echo:
 
-msbuild /m SystemInformer.sln -t:rebuild -p:Configuration=Debug -p:Platform=x64 -verbosity:%TLV% -terminalLogger:%TLG%
+msbuild /m SysInform.sln -t:rebuild -p:Configuration=Debug -p:Platform=x64 -verbosity:%TLV% -terminalLogger:%TLG%
 if %ERRORLEVEL% neq 0 goto end
 echo:
 
-msbuild /m SystemInformer.sln -t:rebuild -p:Configuration=Debug -p:Platform=ARM64 -verbosity:%TLV% -terminalLogger:%TLG%
+msbuild /m SysInform.sln -t:rebuild -p:Configuration=Debug -p:Platform=ARM64 -verbosity:%TLV% -terminalLogger:%TLG%
 if %ERRORLEVEL% neq 0 goto end
 echo:
 

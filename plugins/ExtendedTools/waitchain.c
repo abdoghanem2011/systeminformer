@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -493,7 +493,7 @@ INT_PTR CALLBACK WaitChainDlgProc(
                     {
                         if (processNode = PhFindProcessNode(UlongToHandle(selectedNode->ProcessId)))
                         {
-                            SystemInformer_SelectTabPage(0);
+                            SysInform_SelectTabPage(0);
                             PhSelectAndEnsureVisibleProcessNode(processNode);
                         }
                     }

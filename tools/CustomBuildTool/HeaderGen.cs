@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -20,7 +20,7 @@ namespace CustomBuildTool
         /// <summary>
         /// The copyright and license notice to prepend to the generated header.
         /// </summary>
-        private static readonly string Notice = "/*\r\n * Copyright (c) Winsider Seminars & Solutions, Inc.  All rights reserved.\r\n *\r\n * This file is part of System Informer.\r\n *\r\n */\r\n\r\n";
+        private static readonly string Notice = "/*\r\n * Copyright (c) Winsider Seminars & Solutions, Inc.  All rights reserved.\r\n *\r\n * This file is part of SysInform.\r\n *\r\n */\r\n\r\n";
 
         /// <summary>
         /// The header guard and C++ extern block for the generated header.
@@ -35,7 +35,7 @@ namespace CustomBuildTool
         /// <summary>
         /// The base directory containing the input header files.
         /// </summary>
-        private const string BaseDirectory = "SystemInformer\\include";
+        private const string BaseDirectory = "SysInform\\include";
 
         /// <summary>
         /// The relative output path for the generated header file.

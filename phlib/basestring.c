@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -681,7 +681,7 @@ FORCEINLINE LONG PhpCompareStringZNatural(
          misrepresented as being the original software.
         3. This notice may not be removed or altered from any source distribution.
 
-        This code has been modified for System Informer.
+        This code has been modified for SysInform.
      */
 
     ULONG ai, bi;

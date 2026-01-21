@@ -19,7 +19,7 @@ if exist "%VSINSTALLPATH%\VC\Auxiliary\Build\vcvarsall.bat" (
 
 echo;
 
-rc.exe /v /c 65001 /i "%INCLUDE%" /i "%~dp0..\..\systeminformer" /D "_UNICODE" /D "UNICODE" /fo version.res version.rc
+rc.exe /v /c 65001 /i "%INCLUDE%" /i "%~dp0..\..\SysInform" /D "_UNICODE" /D "UNICODE" /fo version.res version.rc
 
 echo;
 cvtres.exe /MACHINE:x64 /VERBOSE version.res

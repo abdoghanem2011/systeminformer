@@ -1,7 +1,7 @@
 /*
  * Windows on Windows support functions
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  */
 
 #ifndef _NTWOW64_H

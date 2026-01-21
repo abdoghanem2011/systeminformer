@@ -76,7 +76,7 @@ if /i "%TOOLCHAIN%"=="msvc-x86" (
 set SOURCE_DIR="%CD%"
 
 echo ===============================================
-echo System Informer CMake Build Script
+echo SysInform CMake Build Script
 echo ===============================================
 echo Action:        %ACTION%
 echo Generator:     %GENERATOR%

@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -75,7 +75,7 @@ PPH_STRING PhWinHttpUserAgentString(
 #define PHAPP_VERSION_MINOR 0
 #endif
 
-    PhInitFormatS(&format[0], L"SystemInformer_A2D1C96D_D25915D9_");
+    PhInitFormatS(&format[0], L"SysInform_A2D1C96D_D25915D9_");
     PhInitFormatU(&format[1], PHAPP_VERSION_MAJOR);
     PhInitFormatC(&format[2], L'_');
     PhInitFormatU(&format[3], PHAPP_VERSION_MINOR);

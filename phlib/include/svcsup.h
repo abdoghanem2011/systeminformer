@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -421,7 +421,7 @@ PhServiceWorkaroundWindowsServiceTypeBug(
     _Inout_ LPENUM_SERVICE_STATUS_PROCESS ServiceEntry
     )
 {
-    // SERVICE_WIN32 is not a valid ServiceType: https://github.com/winsiderss/systeminformer/issues/120 (dmex)
+    // SERVICE_WIN32 is not a valid ServiceType: https://github.com/winsiderss/SysInform/issues/120 (dmex)
     if (ServiceEntry->ServiceStatusProcess.dwServiceType == SERVICE_WIN32)
         ServiceEntry->ServiceStatusProcess.dwServiceType = SERVICE_WIN32_SHARE_PROCESS;
     if (ServiceEntry->ServiceStatusProcess.dwServiceType == (SERVICE_WIN32 | SERVICE_USER_SHARE_PROCESS | SERVICE_USERSERVICE_INSTANCE))

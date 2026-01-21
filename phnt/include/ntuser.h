@@ -1,7 +1,7 @@
 /*
  * Win32k NT User definitions.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  */
 
 #ifndef _NTUSER_H

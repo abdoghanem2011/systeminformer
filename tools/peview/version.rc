@@ -10,7 +10,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "winres.h"
-#include "../../SystemInformer/include/phappres.h"
+#include "../../SysInform/include/phappres.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -35,7 +35,7 @@ END
 2 TEXTINCLUDE
 BEGIN
     "#include ""winres.h""\r\n"
-    "#include ""../../SystemInformer/include/phappres.h""\0"
+    "#include ""../../SysInform/include/phappres.h""\0"
 END
 
 3 TEXTINCLUDE

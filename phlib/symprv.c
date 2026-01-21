@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -2126,7 +2126,7 @@ VOID PhConvertStackFrame(
  * \li \c PH_WALK_USER_WOW64_STACK Walks the Wow64 user thread context stack. On x86 systems this
  * flag is ignored. On ARM64 systems this includes ARM stack (ThreadWow64Context ARM_NT_CONTEXT).
  * \li \c PH_WALK_KERNEL_STACK Walks the kernel stack. This flag is ignored if there is no active
- * KSystemInformer connection.
+ * KSysInform connection.
  * \param Callback A callback function which is executed for each stack frame.
  * \param Context A user-defined value to pass to the callback function.
  */

@@ -7,7 +7,7 @@
  * published by the Free Software Foundation.
  */
 
-/* This code was modified for System Informer. */
+/* This code was modified for SysInform. */
 
 #include <phbase.h>
 #include "md5.h"

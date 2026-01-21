@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -45,7 +45,7 @@ NTSTATUS EtpRundownEtwMonitorThreadStart(
     );
 
 // 3875f5e7-8f79-406c-8cb9-ee8fd8bfcfbd
-DEFINE_GUID(SystemInformerGuid, 0x3875f5e7, 0x8f79, 0x406c, 0x8c, 0xb9, 0xee, 0x8f, 0xd8, 0xbf, 0xcf, 0xbd);
+DEFINE_GUID(SysInformGuid, 0x3875f5e7, 0x8f79, 0x406c, 0x8c, 0xb9, 0xee, 0x8f, 0xd8, 0xbf, 0xcf, 0xbd);
 // 9e814aad-3204-11d2-9a82-006008a86939
 DEFINE_GUID(SystemTraceControlGuid_I, 0x9e814aad, 0x3204, 0x11d2, 0x9a, 0x82, 0x00, 0x60, 0x08, 0xa8, 0x69, 0x39);
 // 3b9c9951-3480-4220-9377-9c8e5184f5cd
@@ -124,7 +124,7 @@ VOID EtStartEtwSession(
     if (EtWindowsVersion >= WINDOWS_8)
     {
         EtpActualKernelLoggerName = &EtpPrivateKernelLoggerName;
-        EtpActualSessionGuid = &SystemInformerGuid;
+        EtpActualSessionGuid = &SysInformGuid;
     }
     else
     {

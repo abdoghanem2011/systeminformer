@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -95,7 +95,7 @@ VOID ShowCheckForUpdatesDialog(
     config.lpCallbackData = (LONG_PTR)Context;
     config.cxWidth = 200;
 
-    config.pszWindowTitle = L"System Informer - Updater";
+    config.pszWindowTitle = L"SysInform - Updater";
 
     switch (Context->Channel)
     {
@@ -116,19 +116,19 @@ VOID ShowCheckForUpdatesDialog(
     //    switch (Context->Channel)
     //    {
     //    case PhReleaseChannel:
-    //        config.pszMainInstruction = L"Switch to the System Informer release channel?";
+    //        config.pszMainInstruction = L"Switch to the SysInform release channel?";
     //        break;
     //    //case PhPreviewChannel:
-    //    //    config.pszMainInstruction = L"Switch to the System Informer preview channel?";
+    //    //    config.pszMainInstruction = L"Switch to the SysInform preview channel?";
     //    //    break;
     //    case PhCanaryChannel:
-    //        config.pszMainInstruction = L"Switch to the System Informer canary channel?";
+    //        config.pszMainInstruction = L"Switch to the SysInform canary channel?";
     //        break;
     //    //case PhDeveloperChannel:
-    //    //    config.pszMainInstruction = L"Switch to the System Informer developer channel?";
+    //    //    config.pszMainInstruction = L"Switch to the SysInform developer channel?";
     //    //    break;
     //    default:
-    //        config.pszMainInstruction = L"Switch the System Informer update channel?";
+    //        config.pszMainInstruction = L"Switch the SysInform update channel?";
     //        break;
     //    }
     //
@@ -145,7 +145,7 @@ VOID ShowCheckForUpdatesDialog(
     {
         config.pButtons = UpdateTaskDialogButtonArray;
         config.cButtons = RTL_NUMBER_OF(UpdateTaskDialogButtonArray);
-        config.pszMainInstruction = L"Check for an updated System Informer release?";
+        config.pszMainInstruction = L"Check for an updated SysInform release?";
         config.pszContent = L"Click Check to continue.";
     }
 

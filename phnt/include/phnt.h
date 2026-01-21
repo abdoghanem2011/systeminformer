@@ -1,7 +1,7 @@
 /*
  * NT Header annotations
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  */
 
 #ifndef _PHNT_H

@@ -1,7 +1,7 @@
 /*
  * Boot Configuration Data (BCD) support functions
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  */
 
 #ifndef _NTBCD_H

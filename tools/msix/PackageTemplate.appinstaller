@@ -2,14 +2,14 @@
 <AppInstaller 
     xmlns="http://schemas.microsoft.com/appx/appinstaller/2021"
     Version="3.0.0.0"
-    Uri="https://systeminformer.sourceforge.io/systeminformer.appinstaller">
+    Uri="https://SysInform.sourceforge.io/SysInform.appinstaller">
     
     <MainPackage
-        Name="SystemInformer"
+        Name="SysInform"
         Publisher="CN=Winsider Seminars &amp; Solutions Inc., O=Winsider Seminars &amp; Solutions Inc., L=Montréal, S=Quebec, C=CA"
         Version="3.0.0.0"
         ProcessorArchitecture="x64"
-        Uri="https://systeminformer.sourceforge.io/systeminformer-build-package.msix" />
+        Uri="https://SysInform.sourceforge.io/SysInform-build-package.msix" />
         
     <UpdateSettings>
         <OnLaunch HoursBetweenUpdateChecks="24" UpdateBlocksActivation="true" ShowPrompt="true" />
@@ -18,15 +18,15 @@
     </UpdateSettings>
 
     <UpdateUris>
-        <UpdateUri>https://systeminformer.sourceforge.io/systeminformer.appinstaller</UpdateUri>
-        <UpdateUri>https://systeminformer.com/systeminformer.appinstaller</UpdateUri>
-        <UpdateUri>https://system-informer.com/systeminformer.appinstaller</UpdateUri>
+        <UpdateUri>https://SysInform.sourceforge.io/SysInform.appinstaller</UpdateUri>
+        <UpdateUri>https://SysInform.com/SysInform.appinstaller</UpdateUri>
+        <UpdateUri>https://system-informer.com/SysInform.appinstaller</UpdateUri>
     </UpdateUris>
 
     <RepairUris>
-        <RepairUri>https://systeminformer.sourceforge.io/systeminformer.appinstaller</RepairUri>
-        <RepairUri>https://systeminformer.com/systeminformer.appinstaller</RepairUri>
-        <RepairUri>https://system-informer.com/systeminformer.appinstaller</RepairUri>
+        <RepairUri>https://SysInform.sourceforge.io/SysInform.appinstaller</RepairUri>
+        <RepairUri>https://SysInform.com/SysInform.appinstaller</RepairUri>
+        <RepairUri>https://system-informer.com/SysInform.appinstaller</RepairUri>
     </RepairUris>
 
 </AppInstaller>

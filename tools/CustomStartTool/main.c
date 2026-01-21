@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -130,9 +130,9 @@ NTSTATUS InitializeFileName(
     PPH_STRING fullPath;
 
 #ifdef _DEBUG
-    fileName = PhGetApplicationDirectoryFileNameZ(L"\\..\\..\\..\\..\\bin\\Debug64\\SystemInformer.exe", FALSE);
+    fileName = PhGetApplicationDirectoryFileNameZ(L"\\..\\..\\..\\..\\bin\\Debug64\\SysInform.exe", FALSE);
 #else
-    fileName = PhGetApplicationDirectoryFileNameZ(L"SystemInformer.exe", FALSE);
+    fileName = PhGetApplicationDirectoryFileNameZ(L"SysInform.exe", FALSE);
 #endif
 
     status = PhGetFullPath(

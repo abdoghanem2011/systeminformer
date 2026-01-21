@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -1791,7 +1791,7 @@ HRESULT CALLBACK OnlineChecksTaskDialogBootstrap(
     {
     case TDN_CREATED:
         {
-            HWND windowHandle = SystemInformer_GetWindowHandle();
+            HWND windowHandle = SysInform_GetWindowHandle();
 
             context->DialogHandle = hwndDlg;
             context->HybridPat = PhGetStringSetting(SETTING_NAME_HYBRIDANAL_DEFAULT_PAT);

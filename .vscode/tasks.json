@@ -2,11 +2,11 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build SystemInformer (Debug64)",
+            "label": "Build SysInform (Debug64)",
             "type": "shell",
             "command": "msbuild",
             "args": [
-                "${workspaceFolder}/SystemInformer.sln",
+                "${workspaceFolder}/SysInform.sln",
                 "/p:Configuration=Debug",
                 "/p:Platform=x64",
                 "/t:Rebuild",
@@ -53,11 +53,11 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "Build SystemInformer (kernel driver) (Debug64)",
+            "label": "Build SysInform (kernel driver) (Debug64)",
             "type": "shell",
             "command": "msbuild",
             "args": [
-                "${workspaceFolder}/KSystemInformer/KSystemInformer.sln",
+                "${workspaceFolder}/KSysInform/KSysInform.sln",
                 "/p:Configuration=Debug",
                 "/p:Platform=x64",
                 "/t:Rebuild",

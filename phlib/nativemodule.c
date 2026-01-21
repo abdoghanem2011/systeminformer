@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -313,9 +313,9 @@ NTSTATUS PhEnumKernelModules(
     }
 
     // Note: Windows 11 24H2 introduced breaking changes where, without SeDebugPrivilege, every module's reported base address is zero.
-    // System Informer previously keyed modules by base address in a hash table; this causes enumeration collisions and prevents modules
+    // SysInform previously keyed modules by base address in a hash table; this causes enumeration collisions and prevents modules
     // from being displayed correctly. It also breaks displaying symbol information and interoperability with APIs that require distinct
-    // base addresses for symbol resolution (for example, dbghelp). System Informer only presents module metadata and does not require the
+    // base addresses for symbol resolution (for example, dbghelp). SysInform only presents module metadata and does not require the
     // base addresses to be valid. To preserve unique identifiers and restore correct enumeration and symbol-related behavior, generate a
     // synthetic base address for each module above MaximumUserModeAddress. (dmex)
 
@@ -385,9 +385,9 @@ NTSTATUS PhEnumKernelModulesEx(
     }
 
     // Note: Windows 11 24H2 introduced breaking changes where, without SeDebugPrivilege, every module's reported base address is zero.
-    // System Informer previously keyed modules by base address in a hash table; this causes enumeration collisions and prevents modules
+    // SysInform previously keyed modules by base address in a hash table; this causes enumeration collisions and prevents modules
     // from being displayed correctly. It also breaks displaying symbol information and interoperability with APIs that require distinct
-    // base addresses for symbol resolution (for example, dbghelp). System Informer only presents module metadata and does not require the
+    // base addresses for symbol resolution (for example, dbghelp). SysInform only presents module metadata and does not require the
     // base addresses to be valid. To preserve unique identifiers and restore correct enumeration and symbol-related behavior, generate a
     // synthetic base address for each module above MaximumUserModeAddress. (dmex)
 
@@ -483,9 +483,9 @@ NTSTATUS PhGetKernelFileNameEx(
     if (WindowsVersion >= WINDOWS_11_24H2 && !PhGetOwnTokenAttributes().Elevated)
     {
         // Note: Windows 11 24H2 introduced breaking changes where, without SeDebugPrivilege, every module's reported base address is zero.
-        // System Informer previously keyed modules by base address in a hash table; this causes enumeration collisions and prevents modules
+        // SysInform previously keyed modules by base address in a hash table; this causes enumeration collisions and prevents modules
         // from being displayed correctly. It also breaks displaying symbol information and interoperability with APIs that require distinct
-        // base addresses for symbol resolution (for example, dbghelp). System Informer only presents module metadata and does not require the
+        // base addresses for symbol resolution (for example, dbghelp). SysInform only presents module metadata and does not require the
         // base addresses to be valid. To preserve unique identifiers and restore correct enumeration and symbol-related behavior, generate a
         // synthetic base address for each module above MaximumUserModeAddress. (dmex)
 

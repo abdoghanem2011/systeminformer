@@ -122,9 +122,9 @@ tools/thirdparty/vcpkg_installed/*
 bin-cmake/
 build-*/
 
-!KSystemInformer/bin-signed/*/ksi.dll
-!KSystemInformer/bin-signed/*/ksi.pdb
-!KSystemInformer/bin-signed/*/systeminformer.sys
-!KSystemInformer/bin-signed/*/systeminformer.pdb
+!KSysInform/bin-signed/*/ksi.dll
+!KSysInform/bin-signed/*/ksi.pdb
+!KSysInform/bin-signed/*/SysInform.sys
+!KSysInform/bin-signed/*/SysInform.pdb
 !tools/CustomSignTool/bin/Release*/CustomSignTool.exe
 !tools/fixlib/bin/Release/fixlib.exe

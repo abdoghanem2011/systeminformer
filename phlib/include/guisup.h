@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -862,7 +862,7 @@ FORCEINLINE VOID PhBringWindowToTop(
     // Move the window to the top of the Z-order. (dmex)
     // This is a workaround for a Windows or third party issue breaking
     // SetForegroundWindow and displaying the main window behind other programs.
-    // https://github.com/winsiderss/systeminformer/issues/639
+    // https://github.com/winsiderss/SysInform/issues/639
 
     SetWindowPos(
         WindowHandle,

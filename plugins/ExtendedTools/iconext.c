@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -1555,7 +1555,7 @@ BOOLEAN EtpToolbarGpuHistoryGraphMessageCallback(
 
                     if (record)
                     {
-                        PhShowProcessRecordDialog(SystemInformer_GetWindowHandle(), record);
+                        PhShowProcessRecordDialog(SysInform_GetWindowHandle(), record);
                         PhDereferenceProcessRecord(record);
                     }
                 }
@@ -1655,7 +1655,7 @@ BOOLEAN EtpToolbarNpuHistoryGraphMessageCallback(
 
                     if (record)
                     {
-                        PhShowProcessRecordDialog(SystemInformer_GetWindowHandle(), record);
+                        PhShowProcessRecordDialog(SysInform_GetWindowHandle(), record);
                         PhDereferenceProcessRecord(record);
                     }
                 }
@@ -1810,7 +1810,7 @@ BOOLEAN EtpToolbarDiskHistoryGraphMessageCallback(
 
                     if (record)
                     {
-                        PhShowProcessRecordDialog(SystemInformer_GetWindowHandle(), record);
+                        PhShowProcessRecordDialog(SysInform_GetWindowHandle(), record);
                         PhDereferenceProcessRecord(record);
                     }
                 }
@@ -1965,7 +1965,7 @@ BOOLEAN EtpToolbarNetworkHistoryGraphMessageCallback(
 
                     if (record)
                     {
-                        PhShowProcessRecordDialog(SystemInformer_GetWindowHandle(), record);
+                        PhShowProcessRecordDialog(SysInform_GetWindowHandle(), record);
                         PhDereferenceProcessRecord(record);
                     }
                 }

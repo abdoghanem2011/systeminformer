@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -33,12 +33,12 @@
 
 CONST PH_STRINGREF UninstallKeyNames[] =
 {
-    PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\SystemInformer"),
-    PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\SystemInformer-Preview"),
-    PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\SystemInformer-Canary"),
-    PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\SystemInformer-Developer"),
+    PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\SysInform"),
+    PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\SysInform-Preview"),
+    PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\SysInform-Canary"),
+    PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\SysInform-Developer"),
 };
-CONST PH_STRINGREF AppPathsKeyName = PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\SystemInformer.exe");
+CONST PH_STRINGREF AppPathsKeyName = PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\SysInform.exe");
 CONST PH_STRINGREF TaskmgrIfeoKeyName = PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\taskmgr.exe");
 CONST PH_STRINGREF CurrentUserRunKeyName = PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Run");
 
@@ -90,10 +90,10 @@ NTSTATUS SetupCreateUninstallKey(
         ULONG regValue;
         PH_FORMAT format[7];
 
-        string = SetupCreateFullPath(Context->SetupInstallPath, L"\\systeminformer.exe,0");
+        string = SetupCreateFullPath(Context->SetupInstallPath, L"\\SysInform.exe,0");
         PhSetValueKeyZ(keyHandle, L"DisplayIcon", REG_SZ, string->Buffer, (ULONG)string->Length + sizeof(UNICODE_NULL));
 
-        PhInitializeStringRef(&value, L"System Informer");
+        PhInitializeStringRef(&value, L"SysInform");
         PhSetValueKeyZ(keyHandle, L"DisplayName", REG_SZ, value.Buffer, (ULONG)value.Length + sizeof(UNICODE_NULL));
 
         PhInitFormatU(&format[0], PHAPP_VERSION_MAJOR);
@@ -115,7 +115,7 @@ NTSTATUS SetupCreateUninstallKey(
         PhInitializeStringRef(&value, L"Winsider Seminars & Solutions, Inc.");
         PhSetValueKeyZ(keyHandle, L"Publisher", REG_SZ, value.Buffer, (ULONG)value.Length + sizeof(UNICODE_NULL));
 
-        string = SetupCreateFullPath(Context->SetupInstallPath, L"\\systeminformer-setup.exe");
+        string = SetupCreateFullPath(Context->SetupInstallPath, L"\\SysInform-setup.exe");
         PhMoveReference(&string, PhFormatString(L"\"%s\" -uninstall", PhGetString(string)));
         PhSetValueKeyZ(keyHandle, L"UninstallString", REG_SZ, string->Buffer, (ULONG)string->Length + sizeof(UNICODE_NULL));
 
@@ -137,8 +137,8 @@ PPH_STRING SetupFindInstallDirectory(
 
     if (PhIsNullOrEmptyString(setupInstallPath))
     {
-        static CONST PH_STRINGREF programW6432 = PH_STRINGREF_INIT(L"%ProgramW6432%\\SystemInformer\\");
-        static CONST PH_STRINGREF programFiles = PH_STRINGREF_INIT(L"%ProgramFiles%\\SystemInformer\\");
+        static CONST PH_STRINGREF programW6432 = PH_STRINGREF_INIT(L"%ProgramW6432%\\SysInform\\");
+        static CONST PH_STRINGREF programFiles = PH_STRINGREF_INIT(L"%ProgramFiles%\\SysInform\\");
         SYSTEM_INFO info;
 
         GetNativeSystemInfo(&info);
@@ -151,7 +151,7 @@ PPH_STRING SetupFindInstallDirectory(
 
     if (PhIsNullOrEmptyString(setupInstallPath))
     {
-        setupInstallPath = PhCreateString(L"C:\\Program Files\\SystemInformer\\");
+        setupInstallPath = PhCreateString(L"C:\\Program Files\\SysInform\\");
     }
 
     if (!PhIsNullOrEmptyString(setupInstallPath))
@@ -171,7 +171,7 @@ VOID SetupDeleteAppdataDirectory(
 {
     PPH_STRING appdataDirectory;
 
-    if (appdataDirectory = PhGetKnownFolderPathZ(&FOLDERID_RoamingAppData, L"\\SystemInformer\\"))
+    if (appdataDirectory = PhGetKnownFolderPathZ(&FOLDERID_RoamingAppData, L"\\SysInform\\"))
     {
         PhDeleteDirectoryWin32(&appdataDirectory->sr);
 
@@ -199,7 +199,7 @@ NTSTATUS SetupCreateUninstallFile(
 
     // Move the outdated setup.exe into the trash (temp) folder.
 
-    uninstallFilePath = SetupCreateFullPath(Context->SetupInstallPath, L"\\systeminformer-setup.exe");
+    uninstallFilePath = SetupCreateFullPath(Context->SetupInstallPath, L"\\SysInform-setup.exe");
 
     if (PhDoesFileExistWin32(PhGetString(uninstallFilePath)))
     {
@@ -229,7 +229,7 @@ VOID SetupDeleteUninstallFile(
 {
     PPH_STRING uninstallFilePath;
 
-    uninstallFilePath = SetupCreateFullPath(Context->SetupInstallPath, L"\\systeminformer-setup.exe");
+    uninstallFilePath = SetupCreateFullPath(Context->SetupInstallPath, L"\\SysInform-setup.exe");
 
     if (PhDoesFileExistWin32(PhGetString(uninstallFilePath)))
     {
@@ -257,7 +257,7 @@ NTSTATUS SetupUninstallDriver(
     if (NT_SUCCESS(PhOpenService(
         &serviceHandle,
         SERVICE_QUERY_STATUS | SERVICE_STOP,
-        PhIsNullOrEmptyString(Context->SetupServiceName) ? L"KSystemInformer" : PhGetString(Context->SetupServiceName)
+        PhIsNullOrEmptyString(Context->SetupServiceName) ? L"KSysInform" : PhGetString(Context->SetupServiceName)
         )))
     {
         SERVICE_STATUS_PROCESS serviceStatus;
@@ -278,7 +278,7 @@ NTSTATUS SetupUninstallDriver(
     if (NT_SUCCESS(PhOpenService(
         &serviceHandle,
         DELETE,
-        PhIsNullOrEmptyString(Context->SetupServiceName) ? L"KSystemInformer" : PhGetString(Context->SetupServiceName)
+        PhIsNullOrEmptyString(Context->SetupServiceName) ? L"KSysInform" : PhGetString(Context->SetupServiceName)
         )))
     {
         status = PhDeleteService(serviceHandle);
@@ -311,9 +311,9 @@ VOID SetupCreateWindowsOptions(
 
         if (NT_SUCCESS(status))
         {
-            //string = PhFormatString(L"\"%s\\SystemInformer.exe\"", PhGetString(Context->SetupInstallPath));
+            //string = PhFormatString(L"\"%s\\SysInform.exe\"", PhGetString(Context->SetupInstallPath));
 
-            if (string = SetupCreateFullPath(Context->SetupInstallPath, L"\\SystemInformer.exe"))
+            if (string = SetupCreateFullPath(Context->SetupInstallPath, L"\\SysInform.exe"))
             {
                 PhSetValueKey(keyHandle, NULL, REG_SZ, string->Buffer, (ULONG)string->Length + sizeof(UNICODE_NULL));
                 PhDereferenceObject(string);
@@ -326,7 +326,7 @@ VOID SetupCreateWindowsOptions(
     // Reset the settings file.
     //if (Context->SetupResetSettings)
     //{
-    //    static PH_STRINGREF settingsPath = PH_STRINGREF_INIT(L"%APPDATA%\\SystemInformer\\settings.xml");
+    //    static PH_STRINGREF settingsPath = PH_STRINGREF_INIT(L"%APPDATA%\\SysInform\\settings.xml");
     //    PPH_STRING settingsFilePath;
     //
     //    if (settingsFilePath = PhExpandEnvironmentStrings(&settingsPath))
@@ -400,7 +400,7 @@ VOID SetupCreateWindowsOptions(
     //        PPH_STRING value;
     //        UNICODE_STRING valueName;
     //
-    //        RtlInitUnicodeString(&valueName, L"System Informer");
+    //        RtlInitUnicodeString(&valueName, L"SysInform");
     //
     //        if (Context->SetupCreateMinimizedSystemStartup)
     //            value = PhConcatStrings(3, L"\"", PhGetString(clientPathString), L"\" -hide");
@@ -425,7 +425,7 @@ BOOLEAN NTAPI SetupDeleteAutoRunKeyCallback(
 {
     if (Information->Type == REG_SZ)
     {
-        static CONST PH_STRINGREF fileName = PH_STRINGREF_INIT(L"\\SystemInformer.exe");
+        static CONST PH_STRINGREF fileName = PH_STRINGREF_INIT(L"\\SysInform.exe");
         PH_STRINGREF value;
 
         value.Length = Information->DataLength;
@@ -452,7 +452,7 @@ VOID SetupDeleteWindowsOptions(
     PPH_STRING string;
     HANDLE keyHandle;
 
-    if (string = PhGetKnownFolderPathZ(&FOLDERID_ProgramData, L"\\Microsoft\\Windows\\Start Menu\\Programs\\System Informer.lnk"))
+    if (string = PhGetKnownFolderPathZ(&FOLDERID_ProgramData, L"\\Microsoft\\Windows\\Start Menu\\Programs\\SysInform.lnk"))
     {
         PhDeleteFileWin32(string->Buffer);
         PhDereferenceObject(string);
@@ -464,7 +464,7 @@ VOID SetupDeleteWindowsOptions(
         PhDereferenceObject(string);
     }
 
-    if (string = PhGetKnownFolderPathZ(&FOLDERID_PublicDesktop, L"\\System Informer.lnk"))
+    if (string = PhGetKnownFolderPathZ(&FOLDERID_PublicDesktop, L"\\SysInform.lnk"))
     {
         PhDeleteFileWin32(string->Buffer);
         PhDereferenceObject(string);
@@ -513,19 +513,19 @@ VOID SetupCreateShortcuts(
 {
     PPH_STRING string;
     PPH_STRING clientPathString;
-    //PH_STRINGREF desktopStartmenuPathSr = PH_STRINGREF_INIT(L"%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\System Informer.lnk");
+    //PH_STRINGREF desktopStartmenuPathSr = PH_STRINGREF_INIT(L"%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\SysInform.lnk");
     //PH_STRINGREF peviewerShortcutPathSr = PH_STRINGREF_INIT(L"%ALLUSERSPROFILE%\\Microsoft\\Windows\\Start Menu\\Programs\\PE Viewer.lnk");
-    //PH_STRINGREF desktopAllusersPathSr = PH_STRINGREF_INIT(L"%PUBLIC%\\Desktop\\System Informer.lnk");
+    //PH_STRINGREF desktopAllusersPathSr = PH_STRINGREF_INIT(L"%PUBLIC%\\Desktop\\SysInform.lnk");
 
-    if (string = PhGetKnownFolderPathZ(&FOLDERID_ProgramData, L"\\Microsoft\\Windows\\Start Menu\\Programs\\System Informer.lnk"))
+    if (string = PhGetKnownFolderPathZ(&FOLDERID_ProgramData, L"\\Microsoft\\Windows\\Start Menu\\Programs\\SysInform.lnk"))
     {
-        clientPathString = SetupCreateFullPath(Context->SetupInstallPath, L"\\SystemInformer.exe");
+        clientPathString = SetupCreateFullPath(Context->SetupInstallPath, L"\\SysInform.exe");
 
         SetupCreateLink(
             PhGetString(string),
             PhGetString(clientPathString),
             PhGetString(Context->SetupInstallPath),
-            L"SystemInformer"
+            L"SysInform"
             );
 
         if (PhDoesFileExistWin32(PhGetString(string)))
@@ -545,7 +545,7 @@ VOID SetupCreateShortcuts(
             PhGetString(string),
             PhGetString(clientPathString),
             PhGetString(Context->SetupInstallPath),
-            L"SystemInformer_PEViewer"
+            L"SysInform_PEViewer"
             );
 
         if (PhDoesFileExistWin32(PhGetString(string)))
@@ -557,15 +557,15 @@ VOID SetupCreateShortcuts(
         PhDereferenceObject(string);
     }
 
-    if (string = PhGetKnownFolderPathZ(&FOLDERID_PublicDesktop, L"\\System Informer.lnk"))
+    if (string = PhGetKnownFolderPathZ(&FOLDERID_PublicDesktop, L"\\SysInform.lnk"))
     {
-        clientPathString = SetupCreateFullPath(Context->SetupInstallPath, L"\\SystemInformer.exe");
+        clientPathString = SetupCreateFullPath(Context->SetupInstallPath, L"\\SysInform.exe");
 
         SetupCreateLink(
             PhGetString(string),
             PhGetString(clientPathString),
             PhGetString(Context->SetupInstallPath),
-            L"SystemInformer"
+            L"SysInform"
             );
 
         if (PhDoesFileExistWin32(PhGetString(string)))
@@ -577,8 +577,8 @@ VOID SetupCreateShortcuts(
         PhDereferenceObject(string);
     }
 
-    // PhGetKnownLocation(CSIDL_COMMON_PROGRAMS, L"\\System Informer.lnk"))
-    // PhGetKnownLocation(CSIDL_COMMON_DESKTOPDIRECTORY, L"\\System Informer.lnk")
+    // PhGetKnownLocation(CSIDL_COMMON_PROGRAMS, L"\\SysInform.lnk"))
+    // PhGetKnownLocation(CSIDL_COMMON_DESKTOPDIRECTORY, L"\\SysInform.lnk")
     // PhGetKnownLocation(CSIDL_COMMON_PROGRAMS, L"\\PE Viewer.lnk")
 }
 
@@ -589,7 +589,7 @@ VOID SetupDeleteShortcuts(
     PPH_STRING string;
     HANDLE keyHandle;
 
-    if (string = PhGetKnownFolderPathZ(&FOLDERID_ProgramData, L"\\Microsoft\\Windows\\Start Menu\\Programs\\System Informer.lnk"))
+    if (string = PhGetKnownFolderPathZ(&FOLDERID_ProgramData, L"\\Microsoft\\Windows\\Start Menu\\Programs\\SysInform.lnk"))
     {
         PhDeleteFileWin32(string->Buffer);
         PhDereferenceObject(string);
@@ -601,7 +601,7 @@ VOID SetupDeleteShortcuts(
         PhDereferenceObject(string);
     }
 
-    if (string = PhGetKnownFolderPathZ(&FOLDERID_PublicDesktop, L"\\System Informer.lnk"))
+    if (string = PhGetKnownFolderPathZ(&FOLDERID_PublicDesktop, L"\\SysInform.lnk"))
     {
         PhDeleteFileWin32(string->Buffer);
         PhDereferenceObject(string);
@@ -631,7 +631,7 @@ NTSTATUS SetupExecuteApplication(
     if (PhIsNullOrEmptyString(Context->SetupInstallPath))
         return FALSE;
 
-    string = SetupCreateFullPath(Context->SetupInstallPath, L"\\SystemInformer.exe");
+    string = SetupCreateFullPath(Context->SetupInstallPath, L"\\SysInform.exe");
     parameters = PhCreateString(SETUP_APP_PARAMETERS);
     if (Context->Hide)
         PhMoveReference(&parameters, PhConcatStringRefZ(&parameters->sr, L" -hide"));
@@ -669,7 +669,7 @@ VOID SetupUpgradeSettingsFile(
     PPH_STRING legacyNightlyFileName;
     PPH_STRING legacySettingsFileName;
 
-    settingsFilePath = PhGetKnownFolderPathZ(&FOLDERID_RoamingAppData, L"\\SystemInformer\\settings.xml");
+    settingsFilePath = PhGetKnownFolderPathZ(&FOLDERID_RoamingAppData, L"\\SysInform\\settings.xml");
 
     settingsFileName = PhConcatStrings(5, L"\\", L"Process", L" Hacker", L"\\", L"settings.xml");
     legacyNightlyFileName = PhGetKnownFolderPath(&FOLDERID_RoamingAppData, &settingsFileName->sr);
@@ -737,7 +737,7 @@ NTSTATUS SetupConvertSettingsFile(
     PPH_STRING settingName;
     PPH_STRING settingValue;
 
-    convertFilePath = PhGetKnownFolderPathZ(&FOLDERID_RoamingAppData, L"\\SystemInformer\\settings.json");
+    convertFilePath = PhGetKnownFolderPathZ(&FOLDERID_RoamingAppData, L"\\SysInform\\settings.json");
 
     if (PhIsNullOrEmptyString(convertFilePath))
         return STATUS_SUCCESS;
@@ -747,7 +747,7 @@ NTSTATUS SetupConvertSettingsFile(
     if (PhIsNullOrEmptyString(convertFilePath))
         return STATUS_SUCCESS;
 
-    settingsFilePath = PhGetKnownFolderPathZ(&FOLDERID_RoamingAppData, L"\\SystemInformer\\settings.xml");
+    settingsFilePath = PhGetKnownFolderPathZ(&FOLDERID_RoamingAppData, L"\\SysInform\\settings.xml");
 
     if (PhIsNullOrEmptyString(settingsFilePath))
         return STATUS_SUCCESS;
@@ -1028,7 +1028,7 @@ BOOLEAN CheckApplicationInstalled(
 
     if (installPath = GetApplicationInstallPath())
     {
-        if (exePath = SetupCreateFullPath(installPath, L"\\SystemInformer.exe"))
+        if (exePath = SetupCreateFullPath(installPath, L"\\SysInform.exe"))
         {
             installed = PhDoesFileExistWin32(PhGetString(exePath));
             PhDereferenceObject(exePath);

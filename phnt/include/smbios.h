@@ -1,7 +1,7 @@
 /*
  * Definitions that describe SMBIOS - https://www.dmtf.org/standards/smbios
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  */
 
 #ifndef _SMBIOS_H

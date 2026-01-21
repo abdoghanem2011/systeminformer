@@ -6,7 +6,7 @@
 
 cmake_minimum_required(VERSION 3.30.0 FATAL_ERROR)
 
-project(SystemInformer)
+project(SysInform)
 
 set(SI_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
@@ -29,7 +29,7 @@ if (MSVC_NOT_CLANG AND CMAKE_BUILD_TYPE STREQUAL "Release")
 endif()
 
 if(SI_WITH_CORE)
-    add_subdirectory(SystemInformer)
+    add_subdirectory(SysInform)
     add_subdirectory(phnt)
     add_subdirectory(phlib)
     add_subdirectory(tools)
@@ -37,7 +37,7 @@ endif()
 
 if(SI_WITH_KERNEL)
     message(FATAL_ERROR "Kernel mode projects are not supported")
-    add_subdirectory(KSystemInformer)
+    add_subdirectory(KSysInform)
 endif()
 
 if(SI_WITH_PLUGINS)

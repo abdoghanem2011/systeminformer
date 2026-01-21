@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -3984,7 +3984,7 @@ PPH_STRING PhGetTemporaryDirectoryRandomAlphaFileName(
 }
 
 /**
- * Gets the local application data directory for System Informer, optionally appending a file name.
+ * Gets the local application data directory for SysInform, optionally appending a file name.
  *
  * \param FileName The file name to append, or NULL to return the directory only.
  * \param NativeFileName TRUE to use the native NT path, FALSE for Win32 path.
@@ -3998,7 +3998,7 @@ PPH_STRING PhGetLocalAppDataDirectory(
     PPH_STRING localAppDataFileName = NULL;
     PPH_STRING localAppDataDirectory;
 
-    if (localAppDataDirectory = PhGetKnownLocationZ(PH_FOLDERID_LocalAppData, L"\\SystemInformer\\", NativeFileName))
+    if (localAppDataDirectory = PhGetKnownLocationZ(PH_FOLDERID_LocalAppData, L"\\SysInform\\", NativeFileName))
     {
         if (!FileName) return localAppDataDirectory;
         localAppDataFileName = PhConcatStringRef2(&localAppDataDirectory->sr, FileName);
@@ -4009,7 +4009,7 @@ PPH_STRING PhGetLocalAppDataDirectory(
 }
 
 /**
- * Gets the roaming application data directory for System Informer, optionally appending a file name.
+ * Gets the roaming application data directory for SysInform, optionally appending a file name.
  *
  * \param FileName The file name to append, or NULL to return the directory only.
  * \param NativeFileName TRUE to use the native NT path, FALSE for Win32 path.
@@ -4023,7 +4023,7 @@ PPH_STRING PhGetRoamingAppDataDirectory(
     PPH_STRING roamingAppDataFileName = NULL;
     PPH_STRING roamingAppDataDirectory;
 
-    if (roamingAppDataDirectory = PhGetKnownLocationZ(PH_FOLDERID_RoamingAppData, L"\\SystemInformer\\", NativeFileName))
+    if (roamingAppDataDirectory = PhGetKnownLocationZ(PH_FOLDERID_RoamingAppData, L"\\SysInform\\", NativeFileName))
     {
         if (!FileName) return roamingAppDataDirectory;
         roamingAppDataFileName = PhConcatStringRef2(&roamingAppDataDirectory->sr, FileName);
@@ -8117,7 +8117,7 @@ HANDLE PhGetNamespaceHandle(
         PhAddAccessAllowedAce(dacl, ACL_REVISION, DIRECTORY_QUERY | DIRECTORY_TRAVERSE | DIRECTORY_CREATE_OBJECT, &PhSeInteractiveSid);
         PhSetDaclSecurityDescriptor(securityDescriptor, TRUE, dacl, FALSE);
 
-        RtlInitUnicodeString(&objectName, L"\\BaseNamedObjects\\SystemInformer");
+        RtlInitUnicodeString(&objectName, L"\\BaseNamedObjects\\SysInform");
         InitializeObjectAttributes(
             &objectAttributes,
             &objectName,

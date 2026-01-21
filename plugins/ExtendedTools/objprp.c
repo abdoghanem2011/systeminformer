@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -1725,7 +1725,7 @@ INT_PTR CALLBACK EtpObjHandlesPageDlgProc(
 
                                 if (processItem = PhReferenceProcessItem(listviewItems[0]->ProcessId))
                                 {
-                                    SystemInformer_ShowProcessProperties(processItem);
+                                    SysInform_ShowProcessProperties(processItem);
                                     PhDereferenceObject(processItem);
                                     PhFree(listviewItems);
                                     return TRUE;
@@ -1787,7 +1787,7 @@ INT_PTR CALLBACK EtpObjHandlesPageDlgProc(
 
                         if (processItem = PhReferenceProcessItem(entry->ProcessId))
                         {
-                            SystemInformer_ShowProcessProperties(processItem);
+                            SysInform_ShowProcessProperties(processItem);
                             PhDereferenceObject(processItem);
                         }
                     }
@@ -1978,7 +1978,7 @@ INT_PTR CALLBACK EtpObjHandlesPageDlgProc(
 
                             if (processItem = PhReferenceProcessItem(listviewItems[0]->ProcessId))
                             {
-                                SystemInformer_ShowProcessProperties(processItem);
+                                SysInform_ShowProcessProperties(processItem);
                                 PhDereferenceObject(processItem);
                             }
                         }

@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -171,20 +171,20 @@ LONG SetupShowMessagePromptForLegacyVersion(
     config.pszMainIcon = TD_INFORMATION_ICON;
     config.pszMainInstruction = L"Hey there, before we continue...";
     config.pszContent =
-        L"- Process Hacker was renamed System Informer.\n"
+        L"- Process Hacker was renamed SysInform.\n"
         L"- Process Hacker does not support Windows 10 or 11.\n"
         L"- Process Hacker will not be updated.\n"
         L"- Process Hacker will not be uninstalled.\n\n"
-        L"This update will now install System Informer.\n\nPlease remember to uninstall Process Hacker. Thanks <3";
+        L"This update will now install SysInform.\n\nPlease remember to uninstall Process Hacker. Thanks <3";
     config.cxWidth = 200;
 
     //PhShowInformation2(
     //    NULL,
     //    L"Process Hacker",
     //    L"%s",
-    //    L"Process Hacker was renamed System Informer.\n"
+    //    L"Process Hacker was renamed SysInform.\n"
     //    L"The legacy version of Process Hacker is no longer maintained and will not receive updates.\r\n\r\n"
-    //    L"The updater is now installing System Informer. The Process Hacker installation must be manually uninstalled"
+    //    L"The updater is now installing SysInform. The Process Hacker installation must be manually uninstalled"
     //    );
 
     if (SUCCEEDED(TaskDialogIndirect(
@@ -340,7 +340,7 @@ BOOLEAN PhParseKsiSettingsBlob( // copied from ksisup.c (dmex)
         {
             // legacy nightly
             directory = PhCreateStringEx((PWSTR)string, stringLength);
-            serviceName = PhCreateString(L"KSystemInformer");
+            serviceName = PhCreateString(L"KSysInform");
 
             if (!PhDoesDirectoryExistWin32(PhGetString(directory)))
             {
@@ -534,7 +534,7 @@ INT WINAPI wWinMain(
 {
     PPH_SETUP_CONTEXT context;
 
-    if (!NT_SUCCESS(PhInitializePhLib(L"System Informer - Setup")))
+    if (!NT_SUCCESS(PhInitializePhLib(L"SysInform - Setup")))
         return EXIT_FAILURE;
     if (!HR_SUCCESS(CoInitializeEx(NULL, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE)))
         return EXIT_FAILURE;

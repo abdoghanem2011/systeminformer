@@ -100,7 +100,7 @@
     <Manifest Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\SystemInformer\SystemInformer.ico" />
+    <Image Include="..\..\SysInform\SysInform.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>

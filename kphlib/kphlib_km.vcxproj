@@ -35,8 +35,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <IntDir>$(SystemInformerRoot)KSystemInformer\obj\$(Configuration)$(PlatformArchitecture)\$(ProjectName)\</IntDir>
-    <OutDir>$(SystemInformerRoot)KSystemInformer\bin\$(Configuration)$(PlatformArchitecture)\</OutDir>
+    <IntDir>$(SysInformRoot)KSysInform\obj\$(Configuration)$(PlatformArchitecture)\$(ProjectName)\</IntDir>
+    <OutDir>$(SysInformRoot)KSysInform\bin\$(Configuration)$(PlatformArchitecture)\</OutDir>
     <TargetName>kphlib_km</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup>

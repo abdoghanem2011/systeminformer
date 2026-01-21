@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -1412,10 +1412,10 @@ static NTSTATUS PhpUnloadDriver(
  * \param BaseAddress The base address of the driver. This parameter can be NULL if a value is
  * specified in \c Name.
  * \param Name The base name of the driver. This parameter can be NULL if a value is specified in
- * \c BaseAddress and KSystemInformer is loaded.
+ * \c BaseAddress and KSysInform is loaded.
  * \return NTSTATUS Successful or errant status.
  * \retval STATUS_INVALID_PARAMETER_MIX Both \c BaseAddress and \c Name were null, or \c Name was
- * not specified and KSystemInformer is not loaded.
+ * not specified and KSysInform is not loaded.
  * \retval STATUS_OBJECT_NAME_NOT_FOUND The driver could not be found.
  */
 NTSTATUS PhUnloadDriver(
@@ -2117,7 +2117,7 @@ NTSTATUS PhEnumHandlesGeneric(
         PSYSTEM_HANDLE_INFORMATION_EX convertedHandles;
         ULONG i;
 
-        // Enumerate handles using KSystemInformer. Unlike with NtQuerySystemInformation,
+        // Enumerate handles using KSysInform. Unlike with NtQuerySystemInformation,
         // this only enumerates handles for a single process and saves a lot of processing.
 
         if (NT_SUCCESS(status = KsiEnumerateProcessHandles(ProcessHandle, &handles)))

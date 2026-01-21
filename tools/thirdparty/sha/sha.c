@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
  */
 
-/* This code was modified for System Informer. */
+/* This code was modified for SysInform. */
 
 #include <phbase.h>
 #include "sha.h"

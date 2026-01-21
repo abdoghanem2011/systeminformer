@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -42,7 +42,7 @@ namespace CustomBuildTool
             Console.InputEncoding = Utils.UTF8NoBOM;
             Console.OutputEncoding = Utils.UTF8NoBOM;
 
-            if (!Utils.SetCurrentDirectoryParent("SystemInformer.sln"))
+            if (!Utils.SetCurrentDirectoryParent("SysInform.sln"))
             {
                 Console.WriteLine($"{VT.RED}Unable to find project solution.{VT.RESET}");
                 return false;
@@ -184,7 +184,7 @@ namespace CustomBuildTool
                     Build.HaveArm64BuildTools = instance.HasARM64BuildToolsComponents;
                 }
 
-                Program.PrintColorMessage("> SystemInformer: ", ConsoleColor.DarkGray, false);
+                Program.PrintColorMessage("> SysInform: ", ConsoleColor.DarkGray, false);
                 Program.PrintColorMessage(Build.BuildLongVersion, ConsoleColor.Green, false);
 
                 if (!string.IsNullOrWhiteSpace(Build.BuildCommitHash))
@@ -198,7 +198,7 @@ namespace CustomBuildTool
                     else
                     {
                         Program.PrintColorMessage(Program.CreateConsoleHyperlink(
-                            $"https://github.com/winsiderss/systeminformer/commit/{Build.BuildCommitHash}",
+                            $"https://github.com/winsiderss/SysInform/commit/{Build.BuildCommitHash}",
                             Build.BuildCommitHash[..8]), ConsoleColor.Blue, false);
                     }
 
@@ -364,9 +364,9 @@ namespace CustomBuildTool
         {
             string[] Build_Wow64_Files =
             [
-                "SystemInformer.exe",
-                "SystemInformer.pdb",
-                "SystemInformer.sig",
+                "SysInform.exe",
+                "SysInform.pdb",
+                "SysInform.sig",
                 "plugins\\DotNetTools.dll",
                 "plugins\\DotNetTools.pdb",
                 "plugins\\DotNetTools.sig",
@@ -406,7 +406,7 @@ namespace CustomBuildTool
         {
             var Build_Resource_Files = new Dictionary<string, string>(4, StringComparer.OrdinalIgnoreCase)
             {
-                ["SystemInformer.png"] = "icon.png",
+                ["SysInform.png"] = "icon.png",
                 ["CapsList.txt"] = "CapsList.txt",
                 ["EtwGuids.txt"] = "EtwGuids.txt",
                 ["PoolTag.txt"] = "PoolTag.txt",
@@ -419,7 +419,7 @@ namespace CustomBuildTool
                     if (Flags.HasFlag(BuildFlags.Build32bit))
                     {
                         Win32.CopyIfNewer(
-                            $"{BuildWorkingFolder}\\SystemInformer\\resources\\{file.Key}",
+                            $"{BuildWorkingFolder}\\SysInform\\resources\\{file.Key}",
                             $"{BuildWorkingFolder}\\bin\\Debug32\\Resources\\{file.Value}",
                             Flags);
                     }
@@ -427,7 +427,7 @@ namespace CustomBuildTool
                     if (Flags.HasFlag(BuildFlags.Build64bit))
                     {
                         Win32.CopyIfNewer(
-                            $"{BuildWorkingFolder}\\SystemInformer\\resources\\{file.Key}",
+                            $"{BuildWorkingFolder}\\SysInform\\resources\\{file.Key}",
                             $"{BuildWorkingFolder}\\bin\\Debug64\\Resources\\{file.Value}",
                             Flags);
                     }
@@ -435,7 +435,7 @@ namespace CustomBuildTool
                     if (Flags.HasFlag(BuildFlags.BuildArm64bit))
                     {
                         Win32.CopyIfNewer(
-                            $"{BuildWorkingFolder}\\SystemInformer\\resources\\{file.Key}",
+                            $"{BuildWorkingFolder}\\SysInform\\resources\\{file.Key}",
                             $"{BuildWorkingFolder}\\bin\\DebugARM64\\Resources\\{file.Value}",
                             Flags);
                     }
@@ -446,7 +446,7 @@ namespace CustomBuildTool
                     if (Flags.HasFlag(BuildFlags.Build32bit))
                     {
                         Win32.CopyIfNewer(
-                            $"{BuildWorkingFolder}\\SystemInformer\\resources\\{file.Key}",
+                            $"{BuildWorkingFolder}\\SysInform\\resources\\{file.Key}",
                             $"{BuildWorkingFolder}\\bin\\Release32\\Resources\\{file.Value}",
                             Flags);
                     }
@@ -454,7 +454,7 @@ namespace CustomBuildTool
                     if (Flags.HasFlag(BuildFlags.Build64bit))
                     {
                         Win32.CopyIfNewer(
-                            $"{BuildWorkingFolder}\\SystemInformer\\resources\\{file.Key}",
+                            $"{BuildWorkingFolder}\\SysInform\\resources\\{file.Key}",
                             $"{BuildWorkingFolder}\\bin\\Release64\\Resources\\{file.Value}",
                             Flags);
                     }
@@ -462,7 +462,7 @@ namespace CustomBuildTool
                     if (Flags.HasFlag(BuildFlags.BuildArm64bit))
                     {
                         Win32.CopyIfNewer(
-                            $"{BuildWorkingFolder}\\SystemInformer\\resources\\{file.Key}",
+                            $"{BuildWorkingFolder}\\SysInform\\resources\\{file.Key}",
                             $"{BuildWorkingFolder}\\bin\\ReleaseARM64\\Resources\\{file.Value}",
                             Flags);
                     }
@@ -543,7 +543,7 @@ namespace CustomBuildTool
         }
 
         /// <summary>
-        /// Validates export definitions for SystemInformer executables in output folders.
+        /// Validates export definitions for SysInform executables in output folders.
         /// </summary>
         /// <param name="Flags">Build flags indicating which configurations to validate.</param>
         /// <returns>True if all validations succeed.</returns>
@@ -556,13 +556,13 @@ namespace CustomBuildTool
             {
                 if (Flags.HasFlag(BuildFlags.Build64bit))
                 {
-                    if (!Utils.ValidateImageExports($"bin\\Debug32\\SystemInformer.exe"))
+                    if (!Utils.ValidateImageExports($"bin\\Debug32\\SysInform.exe"))
                         return false;
                 }
 
                 if (Flags.HasFlag(BuildFlags.BuildArm64bit))
                 {
-                    if (!Utils.ValidateImageExports($"bin\\Debug32\\SystemInformer.exe"))
+                    if (!Utils.ValidateImageExports($"bin\\Debug32\\SysInform.exe"))
                         return false;
                 }
             }
@@ -571,13 +571,13 @@ namespace CustomBuildTool
             {
                 if (Flags.HasFlag(BuildFlags.Build64bit))
                 {
-                    if (!Utils.ValidateImageExports($"bin\\Release32\\SystemInformer.exe"))
+                    if (!Utils.ValidateImageExports($"bin\\Release32\\SysInform.exe"))
                         return false;
                 }
 
                 if (Flags.HasFlag(BuildFlags.BuildArm64bit))
                 {
-                    if (!Utils.ValidateImageExports($"bin\\Release32\\SystemInformer.exe"))
+                    if (!Utils.ValidateImageExports($"bin\\Release32\\SysInform.exe"))
                         return false;
                 }
             }
@@ -659,7 +659,7 @@ namespace CustomBuildTool
         {
             string[] Build_Driver_Files =
             [
-                "SystemInformer.sys",
+                "SysInform.sys",
                 "ksi.dll"
             ];
 
@@ -670,17 +670,17 @@ namespace CustomBuildTool
                     if (Flags.HasFlag(BuildFlags.BuildDebug))
                     {
                         if (Flags.HasFlag(BuildFlags.Build64bit))
-                            Win32.CopyVersionIfNewer($"KSystemInformer\\bin-signed\\amd64\\{file}", $"bin\\Debug64\\{file}", Flags);
+                            Win32.CopyVersionIfNewer($"KSysInform\\bin-signed\\amd64\\{file}", $"bin\\Debug64\\{file}", Flags);
                         if (Flags.HasFlag(BuildFlags.BuildArm64bit))
-                            Win32.CopyVersionIfNewer($"KSystemInformer\\bin-signed\\arm64\\{file}", $"bin\\DebugARM64\\{file}", Flags);
+                            Win32.CopyVersionIfNewer($"KSysInform\\bin-signed\\arm64\\{file}", $"bin\\DebugARM64\\{file}", Flags);
                     }
 
                     if (Flags.HasFlag(BuildFlags.BuildRelease))
                     {
                         if (Flags.HasFlag(BuildFlags.Build64bit))
-                            Win32.CopyVersionIfNewer($"KSystemInformer\\bin-signed\\amd64\\{file}", $"bin\\Release64\\{file}", Flags);
+                            Win32.CopyVersionIfNewer($"KSysInform\\bin-signed\\amd64\\{file}", $"bin\\Release64\\{file}", Flags);
                         if (Flags.HasFlag(BuildFlags.BuildArm64bit))
-                            Win32.CopyVersionIfNewer($"KSystemInformer\\bin-signed\\arm64\\{file}", $"bin\\ReleaseARM64\\{file}", Flags);
+                            Win32.CopyVersionIfNewer($"KSysInform\\bin-signed\\arm64\\{file}", $"bin\\ReleaseARM64\\{file}", Flags);
                     }
                 }
             }
@@ -742,8 +742,8 @@ namespace CustomBuildTool
         {
             string[] Build_Sdk_Files =
             [
-                "SystemInformer.lib",
-                "SystemInformer.pdb"
+                "SysInform.lib",
+                "SysInform.pdb"
             ];
 
             foreach (string folder in BuildConfig.Build_Sdk_Directories)
@@ -760,7 +760,7 @@ namespace CustomBuildTool
                 Win32.CopyIfNewer($"kphlib\\include\\{file}", $"sdk\\include\\{file}", Flags, true);
 
             // Copy readme
-            Win32.CopyIfNewer("SystemInformer\\sdk\\readme.txt", "sdk\\readme.txt", Flags, true);
+            Win32.CopyIfNewer("SysInform\\sdk\\readme.txt", "sdk\\readme.txt", Flags, true);
 
             // Copy files
             foreach (string file in Build_Sdk_Files)
@@ -790,20 +790,20 @@ namespace CustomBuildTool
             HeaderGen.Execute();
 
             // Copy the SDK headers
-            Win32.CopyIfNewer("SystemInformer\\include\\phappres.h", "sdk\\include\\phappres.h", Flags, true);
-            Win32.CopyIfNewer("SystemInformer\\sdk\\phapppub.h", "sdk\\include\\phapppub.h", Flags, true);
-            Win32.CopyIfNewer("SystemInformer\\sdk\\phdk.h", "sdk\\include\\phdk.h", Flags, true);
+            Win32.CopyIfNewer("SysInform\\include\\phappres.h", "sdk\\include\\phappres.h", Flags, true);
+            Win32.CopyIfNewer("SysInform\\sdk\\phapppub.h", "sdk\\include\\phapppub.h", Flags, true);
+            Win32.CopyIfNewer("SysInform\\sdk\\phdk.h", "sdk\\include\\phdk.h", Flags, true);
 
             //
             // Copy the resource header and prefix types with PHAPP for the SDK
             //
 
-            Win32.GetFileBasicInfo("SystemInformer\\resource.h", out var sourceCreationTime, out var sourceWriteTime, out _);
+            Win32.GetFileBasicInfo("SysInform\\resource.h", out var sourceCreationTime, out var sourceWriteTime, out _);
             Win32.GetFileBasicInfo("sdk\\include\\phappresource.h", out var targetCreationTime, out var targetWriteTime, out var targetAttributes);
 
             if (sourceCreationTime != targetCreationTime || sourceWriteTime != targetWriteTime)
             {
-                string resourceContent = Utils.ReadAllText("SystemInformer\\resource.h");
+                string resourceContent = Utils.ReadAllText("SysInform\\resource.h");
                 string targetContent = resourceContent.Replace("#define ID", "#define PHAPP_ID", StringComparison.OrdinalIgnoreCase);
 
                 if (!resourceContent.Equals(targetContent, StringComparison.OrdinalIgnoreCase))
@@ -814,7 +814,7 @@ namespace CustomBuildTool
                 }
 
                 Win32.SetFileBasicInfo("sdk\\include\\phappresource.h", sourceCreationTime, sourceWriteTime, true);
-                //Win32.CopyIfNewer("SystemInformer\\resource.h", "sdk\\include\\phappresource.h", Flags);
+                //Win32.CopyIfNewer("SysInform\\resource.h", "sdk\\include\\phappresource.h", Flags);
             }
 
             return true;
@@ -837,7 +837,7 @@ namespace CustomBuildTool
             try
             {
                 string out_file = Path.Join([Build.BuildWorkingFolder, "\\tools\\CustomSetupTool\\bin\\Release32\\CustomSetupTool.exe"]);
-                string exe_file = Path.Join([Build.BuildOutputFolder, $"\\systeminformer-build-{Channel}-setup.exe"]);
+                string exe_file = Path.Join([Build.BuildOutputFolder, $"\\SysInform-build-{Channel}-setup.exe"]);
 
                 Utils.CreateOutputDirectory();
 
@@ -874,7 +874,7 @@ namespace CustomBuildTool
 
             try
             {
-                string zip_file = Path.Join([Build.BuildOutputFolder, "\\systeminformer-build-sdk.zip"]);
+                string zip_file = Path.Join([Build.BuildOutputFolder, "\\SysInform-build-sdk.zip"]);
 
                 Utils.CreateOutputDirectory();
 
@@ -909,10 +909,10 @@ namespace CustomBuildTool
         {
             var Build_Zip_Files = new Dictionary<string, string>(4, StringComparer.OrdinalIgnoreCase)
             {
-                ["bin\\Release32"] = "systeminformer-build-win32-bin.zip",
-                ["bin\\Release64"] = "systeminformer-build-win64-bin.zip",
-                ["bin\\ReleaseARM64"] = "systeminformer-build-arm64-bin.zip",
-                ["bin"] = "systeminformer-build-bin.zip",
+                ["bin\\Release32"] = "SysInform-build-win32-bin.zip",
+                ["bin\\Release64"] = "SysInform-build-win64-bin.zip",
+                ["bin\\ReleaseARM64"] = "SysInform-build-arm64-bin.zip",
+                ["bin"] = "SysInform-build-bin.zip",
             };
 
             Program.PrintColorMessage(BuildTimeSpan(), ConsoleColor.DarkGray, false);
@@ -955,7 +955,7 @@ namespace CustomBuildTool
 
                 if (MsixPackageBuild)
                 {
-                    string zip_file = Path.Join([Build.BuildOutputFolder, "\\systeminformer-setup-package-pdb.zip"]);
+                    string zip_file = Path.Join([Build.BuildOutputFolder, "\\SysInform-setup-package-pdb.zip"]);
 
                     Win32.DeleteFile(
                         zip_file,
@@ -975,7 +975,7 @@ namespace CustomBuildTool
                 }
                 else
                 {
-                    string zip_file = Path.Join([Build.BuildOutputFolder, "\\systeminformer-build-pdb.zip"]);
+                    string zip_file = Path.Join([Build.BuildOutputFolder, "\\SysInform-build-pdb.zip"]);
 
                     Win32.DeleteFile(
                         zip_file,
@@ -1023,7 +1023,7 @@ namespace CustomBuildTool
 
             try
             {
-                string zip_file = Path.Join([Build.BuildOutputFolder, "\\systeminformer-symbols-package.zip"]);
+                string zip_file = Path.Join([Build.BuildOutputFolder, "\\SysInform-symbols-package.zip"]);
 
                 Win32.DeleteFile(
                     zip_file
@@ -1031,13 +1031,13 @@ namespace CustomBuildTool
                 Utils.CreateOutputDirectory();
 
                 Utils.ExecuteSymStoreCommand(
-                    @$"add -:REL /r /f ""bin\\Release32\\*.*"" /s ""build\\output\\symbols"" /t SystemInformer /v ""{Build.BuildLongVersion}"" /c ""32bit-{Build.BuildCommitHash}"" /o"
+                    @$"add -:REL /r /f ""bin\\Release32\\*.*"" /s ""build\\output\\symbols"" /t SysInform /v ""{Build.BuildLongVersion}"" /c ""32bit-{Build.BuildCommitHash}"" /o"
                     );
                 Utils.ExecuteSymStoreCommand(
-                    @$"add -:REL /r /f ""bin\\Release64\\*.*"" /s ""build\\output\\symbols"" /t SystemInformer /v ""{Build.BuildLongVersion}"" /c ""64bit-{Build.BuildCommitHash}"" /o"
+                    @$"add -:REL /r /f ""bin\\Release64\\*.*"" /s ""build\\output\\symbols"" /t SysInform /v ""{Build.BuildLongVersion}"" /c ""64bit-{Build.BuildCommitHash}"" /o"
                     );
                 Utils.ExecuteSymStoreCommand(
-                    @$"add -:REL /r /f ""bin\\ReleaseARM64\\*.*"" /s ""build\\output\\symbols"" /t SystemInformer /v ""{Build.BuildLongVersion}"" /c ""arm64-{Build.BuildCommitHash}"" /o"
+                    @$"add -:REL /r /f ""bin\\ReleaseARM64\\*.*"" /s ""build\\output\\symbols"" /t SysInform /v ""{Build.BuildLongVersion}"" /c ""arm64-{Build.BuildCommitHash}"" /o"
                     );
 
                 Program.PrintColorMessage("Building symbols-package.zip...", ConsoleColor.Cyan, false);
@@ -1069,13 +1069,13 @@ namespace CustomBuildTool
         {
             string[] Build_Upload_Files =
             [
-                "systeminformer-build-win32-bin.zip",
-                "systeminformer-build-win64-bin.zip",
-                "systeminformer-build-arm64-bin.zip",
-                "systeminformer-build-bin.zip",
-                "systeminformer-build-pdb.zip",
-                "systeminformer-build-release-setup.exe",
-                "systeminformer-build-canary-setup.exe"
+                "SysInform-build-win32-bin.zip",
+                "SysInform-build-win64-bin.zip",
+                "SysInform-build-arm64-bin.zip",
+                "SysInform-build-bin.zip",
+                "SysInform-build-pdb.zip",
+                "SysInform-build-release-setup.exe",
+                "SysInform-build-canary-setup.exe"
             ];
 
             Program.PrintColorMessage(BuildTimeSpan(), ConsoleColor.DarkGray, false);
@@ -1102,11 +1102,11 @@ namespace CustomBuildTool
                 Utils.CreateOutputDirectory();
 
                 Win32.DeleteFile(
-                    $"{BuildOutputFolder}\\systeminformer-build-checksums.txt"
+                    $"{BuildOutputFolder}\\SysInform-build-checksums.txt"
                     );
 
                 Utils.WriteAllText(
-                    $"{BuildOutputFolder}\\systeminformer-build-checksums.txt",
+                    $"{BuildOutputFolder}\\SysInform-build-checksums.txt",
                     sb.ToString()
                     );
             }
@@ -1369,12 +1369,12 @@ namespace CustomBuildTool
             // Define the files to upload (bool true create hash and signatute)
             var Build_Upload_Files = new Dictionary<string, bool>(4, StringComparer.OrdinalIgnoreCase)
             {
-                ["systeminformer-build-win32-bin.zip"] = true,
-                ["systeminformer-build-win64-bin.zip"] = true,
-                ["systeminformer-build-arm64-bin.zip"] = true,
-                //["systeminformer-build-bin.zip"] = true,
-                ["systeminformer-build-pdb.zip"] = false,
-                //["systeminformer-build-release-setup.exe"] = true,
+                ["SysInform-build-win32-bin.zip"] = true,
+                ["SysInform-build-win64-bin.zip"] = true,
+                ["SysInform-build-arm64-bin.zip"] = true,
+                //["SysInform-build-bin.zip"] = true,
+                ["SysInform-build-pdb.zip"] = false,
+                //["SysInform-build-release-setup.exe"] = true,
             };
 
             List<DeployFile> deployFiles = new List<DeployFile>();
@@ -1382,9 +1382,9 @@ namespace CustomBuildTool
             // N.B. HACK we only produce a "release" (default setting) build for the binary (portable).
             // Sign it using the "release" key. (jxy-s)
 
-            var portable_zip = CreateBuildDeployFile("release", "systeminformer-build-bin.zip", Path.Join([Build.BuildOutputFolder, "\\systeminformer-build-bin.zip"]));
-            var release_exe = CreateBuildDeployFile("release", "systeminformer-build-release-setup.exe", Path.Join([Build.BuildOutputFolder, "\\systeminformer-build-release-setup.exe"]));
-            var canary_exe = CreateBuildDeployFile("canary", "systeminformer-build-canary-setup.exe", Path.Join([Build.BuildOutputFolder, "\\systeminformer-build-canary-setup.exe"]));
+            var portable_zip = CreateBuildDeployFile("release", "SysInform-build-bin.zip", Path.Join([Build.BuildOutputFolder, "\\SysInform-build-bin.zip"]));
+            var release_exe = CreateBuildDeployFile("release", "SysInform-build-release-setup.exe", Path.Join([Build.BuildOutputFolder, "\\SysInform-build-release-setup.exe"]));
+            var canary_exe = CreateBuildDeployFile("canary", "SysInform-build-canary-setup.exe", Path.Join([Build.BuildOutputFolder, "\\SysInform-build-canary-setup.exe"]));
 
             if (portable_zip == null || release_exe == null || canary_exe == null)
             {
@@ -1414,9 +1414,9 @@ namespace CustomBuildTool
 
             // Check assets uploaded to github
             var github_release_id = githubMirrorUpload.ReleaseId.ToString();
-            var binzipdownloadlink = githubMirrorUpload.GetFileUrl("systeminformer-build-bin.zip"); // $"systeminformer-{Build.BuildLongVersion}-bin.zip"
-            var relzipdownloadlink = githubMirrorUpload.GetFileUrl("systeminformer-build-release-setup.exe");
-            var canzipdownloadlink = githubMirrorUpload.GetFileUrl("systeminformer-build-canary-setup.exe");
+            var binzipdownloadlink = githubMirrorUpload.GetFileUrl("SysInform-build-bin.zip"); // $"SysInform-{Build.BuildLongVersion}-bin.zip"
+            var relzipdownloadlink = githubMirrorUpload.GetFileUrl("SysInform-build-release-setup.exe");
+            var canzipdownloadlink = githubMirrorUpload.GetFileUrl("SysInform-build-canary-setup.exe");
 
             if (string.IsNullOrWhiteSpace(github_release_id) || string.IsNullOrWhiteSpace(binzipdownloadlink) || string.IsNullOrWhiteSpace(relzipdownloadlink) || string.IsNullOrWhiteSpace(canzipdownloadlink))
             {
@@ -1804,9 +1804,9 @@ namespace CustomBuildTool
         {
             // Cleanup package manifests.
 
-            Win32.DeleteFile($"{BuildOutputFolder}\\systeminformer-build-package-x32.appx", Flags);
-            Win32.DeleteFile($"{BuildOutputFolder}\\systeminformer-build-package-x64.appx", Flags);
-            Win32.DeleteFile($"{BuildOutputFolder}\\systeminformer-build-package.msixbundle", Flags);
+            Win32.DeleteFile($"{BuildOutputFolder}\\SysInform-build-package-x32.appx", Flags);
+            Win32.DeleteFile($"{BuildOutputFolder}\\SysInform-build-package-x64.appx", Flags);
+            Win32.DeleteFile($"{BuildOutputFolder}\\SysInform-build-package.msixbundle", Flags);
             Win32.DeleteFile($"{BuildWorkingFolder}\\tools\\msix\\MsixManifest32.xml", Flags);
             Win32.DeleteFile($"{BuildWorkingFolder}\\tools\\msix\\MsixManifest64.xml", Flags);
             Win32.DeleteFile($"{BuildWorkingFolder}\\tools\\msix\\MsixPackage32.map", Flags);
@@ -1824,10 +1824,10 @@ namespace CustomBuildTool
             if (Flags.HasFlag(BuildFlags.Build32bit) && File.Exists("tools\\msix\\MsixPackage32.map"))
             {
                 Program.PrintColorMessage(BuildTimeSpan(), ConsoleColor.DarkGray, false, Flags);
-                Program.PrintColorMessage("Building systeminformer-build-package-x64.msix...", ConsoleColor.Cyan, false);
+                Program.PrintColorMessage("Building SysInform-build-package-x64.msix...", ConsoleColor.Cyan, false);
 
                 string result = Utils.ExecuteMsixCommand(
-                    $"pack /o /f {BuildWorkingFolder}\\tools\\msix\\MsixPackage32.map /p {BuildOutputFolder}\\systeminformer-build-package-x32.msix"
+                    $"pack /o /f {BuildWorkingFolder}\\tools\\msix\\MsixPackage32.map /p {BuildOutputFolder}\\SysInform-build-package-x32.msix"
                     );
 
                 if (!result.EndsWith("Package creation succeeded.", StringComparison.OrdinalIgnoreCase))
@@ -1836,16 +1836,16 @@ namespace CustomBuildTool
                     return false;
                 }
 
-                Program.PrintColorMessage(Win32.GetFileSize($"{BuildOutputFolder}\\systeminformer-build-package-x32.msix").ToPrettySize(), ConsoleColor.Green);
+                Program.PrintColorMessage(Win32.GetFileSize($"{BuildOutputFolder}\\SysInform-build-package-x32.msix").ToPrettySize(), ConsoleColor.Green);
             }
 
             if (Flags.HasFlag(BuildFlags.Build64bit) && File.Exists("tools\\msix\\MsixPackage64.map"))
             {
                 Program.PrintColorMessage(BuildTimeSpan(), ConsoleColor.DarkGray, false, Flags);
-                Program.PrintColorMessage("Building systeminformer-build-package-x64.msix...", ConsoleColor.Cyan, false);
+                Program.PrintColorMessage("Building SysInform-build-package-x64.msix...", ConsoleColor.Cyan, false);
 
                 string result = Utils.ExecuteMsixCommand(
-                    $"pack /o /f {BuildWorkingFolder}\\tools\\msix\\MsixPackage64.map /p {BuildOutputFolder}\\systeminformer-build-package-x64.msix"
+                    $"pack /o /f {BuildWorkingFolder}\\tools\\msix\\MsixPackage64.map /p {BuildOutputFolder}\\SysInform-build-package-x64.msix"
                     );
 
                 if (!result.EndsWith("Package creation succeeded.", StringComparison.OrdinalIgnoreCase))
@@ -1854,29 +1854,29 @@ namespace CustomBuildTool
                     return false;
                 }
 
-                Program.PrintColorMessage(Win32.GetFileSize($"{BuildOutputFolder}\\systeminformer-build-package-x64.msix").ToPrettySize(), ConsoleColor.Green);
+                Program.PrintColorMessage(Win32.GetFileSize($"{BuildOutputFolder}\\SysInform-build-package-x64.msix").ToPrettySize(), ConsoleColor.Green);
             }
 
             // Create the bundle package.
 
             if (
-                File.Exists($"{BuildOutputFolder}\\systeminformer-build-package-x32.msix") &&
-                File.Exists($"{BuildOutputFolder}\\systeminformer-build-package-x64.msix")
+                File.Exists($"{BuildOutputFolder}\\SysInform-build-package-x32.msix") &&
+                File.Exists($"{BuildOutputFolder}\\SysInform-build-package-x64.msix")
                 )
             {
                 Program.PrintColorMessage(BuildTimeSpan(), ConsoleColor.DarkGray, false, Flags);
-                Program.PrintColorMessage("Building systeminformer-build-package.msixbundle...", ConsoleColor.Cyan, false);
+                Program.PrintColorMessage("Building SysInform-build-package.msixbundle...", ConsoleColor.Cyan, false);
 
                 {
                     StringBuilder bundleMap = new StringBuilder(0x100);
                     bundleMap.AppendLine("[Files]");
-                    bundleMap.AppendLine($"\"{BuildOutputFolder}\\systeminformer-build-package-x32.msix\" \"systeminformer-build-package-x32.msix\"");
-                    bundleMap.AppendLine($"\"{BuildOutputFolder}\\systeminformer-build-package-x64.msix\" \"systeminformer-build-package-x64.msix\"");
+                    bundleMap.AppendLine($"\"{BuildOutputFolder}\\SysInform-build-package-x32.msix\" \"SysInform-build-package-x32.msix\"");
+                    bundleMap.AppendLine($"\"{BuildOutputFolder}\\SysInform-build-package-x64.msix\" \"SysInform-build-package-x64.msix\"");
                     Utils.WriteAllText($"{BuildWorkingFolder}\\tools\\msix\\bundle.map", bundleMap.ToString());
                 }
 
                 string result = Utils.ExecuteMsixCommand(
-                    $"bundle /f {BuildWorkingFolder}\\tools\\msix\\bundle.map /p {BuildOutputFolder}\\systeminformer-build-package.msixbundle"
+                    $"bundle /f {BuildWorkingFolder}\\tools\\msix\\bundle.map /p {BuildOutputFolder}\\SysInform-build-package.msixbundle"
                     );
 
                 if (!result.EndsWith("Bundle creation succeeded.", StringComparison.OrdinalIgnoreCase))
@@ -1885,7 +1885,7 @@ namespace CustomBuildTool
                     return false;
                 }
 
-                Program.PrintColorMessage(Win32.GetFileSize($"{BuildOutputFolder}\\systeminformer-build-package-x64.msix").ToPrettySize(), ConsoleColor.Green);
+                Program.PrintColorMessage(Win32.GetFileSize($"{BuildOutputFolder}\\SysInform-build-package-x64.msix").ToPrettySize(), ConsoleColor.Green);
             }
 
             if (File.Exists("tools\\msix\\PackageTemplate.appinstaller"))
@@ -1894,7 +1894,7 @@ namespace CustomBuildTool
 
                 msixAppInstallerString = msixAppInstallerString.Replace("Version=\"3.0.0.0\"", $"Version=\"{Build.BuildLongVersion}\"");
 
-                Utils.WriteAllText("build\\output\\SystemInformer.appinstaller", msixAppInstallerString);
+                Utils.WriteAllText("build\\output\\SysInform.appinstaller", msixAppInstallerString);
             }
 
             return true;
@@ -1916,8 +1916,8 @@ namespace CustomBuildTool
                     {
                         ["documents"] = new JsonObject
                         {
-                            ["*"] = $"https://raw.githubusercontent.com/winsiderss/systeminformer/{Build.BuildCommitHash}/*",
-                            [$"{Path.Join([Build.BuildWorkingFolder, "\\"])}*"] = $"https://raw.githubusercontent.com/winsiderss/systeminformer/{Build.BuildCommitHash}/*"
+                            ["*"] = $"https://raw.githubusercontent.com/winsiderss/SysInform/{Build.BuildCommitHash}/*",
+                            [$"{Path.Join([Build.BuildWorkingFolder, "\\"])}*"] = $"https://raw.githubusercontent.com/winsiderss/SysInform/{Build.BuildCommitHash}/*"
                         }
                     };
 
@@ -2046,7 +2046,7 @@ namespace CustomBuildTool
         private const string ExportHeader = @"/*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -2056,7 +2056,7 @@ namespace CustomBuildTool
  *
  * This file was automatically generated.
  *
- * Do not link at runtime. Use the SystemInformer.def.h header file instead.
+ * Do not link at runtime. Use the SysInform.def.h header file instead.
  *
  */
 
@@ -2071,12 +2071,12 @@ namespace CustomBuildTool
 ";
 
         /// <summary>
-        /// Exports the current function and data definitions to the SystemInformer module definition (.def) and header
+        /// Exports the current function and data definitions to the SysInform module definition (.def) and header
         /// (.def.h) files, updating them if changes are detected.
         /// </summary>
-        /// <remarks>This method reads the existing SystemInformer.def file, processes its contents, and
+        /// <remarks>This method reads the existing SysInform.def file, processes its contents, and
         /// writes updated .def and .def.h files only if changes are detected. The original .def file is backed up as
-        /// SystemInformer.def.bak before being overwritten. Use the ReleaseBuild parameter to control whether export
+        /// SysInform.def.bak before being overwritten. Use the ReleaseBuild parameter to control whether export
         /// ordinals are randomized (for release builds) or assigned sequentially (for development or
         /// debugging).</remarks>
         /// <param name="ReleaseBuild">true to generate randomized export ordinals for a release build; false to assign sequential ordinals
@@ -2087,7 +2087,7 @@ namespace CustomBuildTool
             StringBuilder output = new StringBuilder();
             StringBuilder output_header = new StringBuilder();
 
-            var content = Utils.ReadAllText("SystemInformer\\SystemInformer.def");
+            var content = Utils.ReadAllText("SysInform\\SysInform.def");
             var lines = content.Split("\r\n");
             int total = lines.Length;
 
@@ -2155,9 +2155,9 @@ namespace CustomBuildTool
             // Only write to the file if it has changed.
             if (!string.Equals(content, export_content, StringComparison.OrdinalIgnoreCase))
             {
-                Utils.WriteAllText("SystemInformer\\SystemInformer.def", export_content);
-                Utils.WriteAllText("SystemInformer\\SystemInformer.def.h", export_header);
-                Utils.WriteAllText("SystemInformer\\SystemInformer.def.bak", content);
+                Utils.WriteAllText("SysInform\\SysInform.def", export_content);
+                Utils.WriteAllText("SysInform\\SysInform.def.h", export_header);
+                Utils.WriteAllText("SysInform\\SysInform.def.bak", content);
             }
         }
 
@@ -2168,9 +2168,9 @@ namespace CustomBuildTool
         {
             try
             {
-                if (File.Exists("SystemInformer\\SystemInformer.def.bak"))
+                if (File.Exists("SysInform\\SysInform.def.bak"))
                 {
-                    File.Move("SystemInformer\\SystemInformer.def.bak", "SystemInformer\\SystemInformer.def", true);
+                    File.Move("SysInform\\SysInform.def.bak", "SysInform\\SysInform.def", true);
                 }
             }
             catch (Exception ex)

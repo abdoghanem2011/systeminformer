@@ -10,7 +10,7 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "winres.h"
-#include "../../SystemInformer/include/phappres.h"
+#include "../../SysInform/include/phappres.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -28,7 +28,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDI_ICON                ICON                    "../../SystemInformer/SystemInformer.ico"
+IDI_ICON                ICON                    "../../SysInform/SysInform.ico"
 
 
 #ifdef APSTUDIO_INVOKED
@@ -45,7 +45,7 @@ END
 2 TEXTINCLUDE 
 BEGIN
     "#include ""winres.h""\r\n"
-    "#include ""../../SystemInformer/include/phappres.h""\r\n"
+    "#include ""../../SysInform/include/phappres.h""\r\n"
     "\0"
 END
 

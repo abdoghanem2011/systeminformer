@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -13,7 +13,7 @@
 
 #define WPP_CONTROL_GUIDS                                                      \
     WPP_DEFINE_CONTROL_GUID(                                                   \
-        SystemInformer, (0b23b1bf, 45ee, 4219, bf51, 8979219d8acd),            \
+        SysInform, (0b23b1bf, 45ee, 4219, bf51, 8979219d8acd),            \
         WPP_DEFINE_BIT(GENERAL)     /* bit  0 = 0x00000001 */                  \
         WPP_DEFINE_BIT(PROFILING)   /* bit  1 = 0x00000002 */                  \
         )

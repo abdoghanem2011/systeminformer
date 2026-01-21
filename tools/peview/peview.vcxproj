@@ -302,7 +302,7 @@
     <Image Include="resources\search_modern_light.png" />
     <Image Include="resources\search_stop_modern_dark.png" />
     <Image Include="resources\search_stop_modern_light.png" />
-    <Image Include="resources\SystemInformer.ico" />
+    <Image Include="resources\SysInform.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\case_sensitive_modern_dark.svg" />

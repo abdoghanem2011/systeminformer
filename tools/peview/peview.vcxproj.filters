@@ -221,7 +221,7 @@
     </Manifest>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="resources\SystemInformer.ico">
+    <Image Include="resources\SysInform.ico">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resources\inactive_search.png">

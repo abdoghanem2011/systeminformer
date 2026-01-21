@@ -21,6 +21,6 @@ in the environment. To resolve this in your environment run `build_thirdparty.cm
 
 It is possible to load built plugins with the driver enabled, but there is an intentional security
 mitigation to protect the driver from abuse. Please refer to the
-[kernel driver readme](../KSystemInformer/README.md) for more information. You may also disable
+[kernel driver readme](../KSysInform/README.md) for more information. You may also disable
 the advanced setting for image load denial, but access to the driver will be restricted with
 unsigned plugins loaded.

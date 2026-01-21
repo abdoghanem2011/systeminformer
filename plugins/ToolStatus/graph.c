@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -164,7 +164,7 @@ VOID ToolbarGraphsInitializeDpi(
     {
         PPH_TOOLBAR_GRAPH graph = PhpToolbarGraphList->Items[i];
 
-        graph->GraphDpi = SystemInformer_GetWindowDpi();
+        graph->GraphDpi = SysInform_GetWindowDpi();
     }
 }
 
@@ -272,7 +272,7 @@ VOID ToolbarCreateGraphs(
         ULONG width;
 
         height = (ULONG)SendMessage(RebarHandle, RB_GETROWHEIGHT, REBAR_BAND_ID_TOOLBAR, 0);
-        width = PhGetDpi(145, SystemInformer_GetWindowDpi());
+        width = PhGetDpi(145, SysInform_GetWindowDpi());
 
         for (ULONG i = 0; i < PhpToolbarGraphList->Count; i++)
         {
@@ -374,7 +374,7 @@ VOID ToolbarSetVisibleGraph(
     if (Visible)
     {
         ULONG height = (ULONG)SendMessage(RebarHandle, RB_GETROWHEIGHT, REBAR_BAND_ID_TOOLBAR, 0);
-        ULONG width = PhGetDpi(145, SystemInformer_GetWindowDpi());
+        ULONG width = PhGetDpi(145, SysInform_GetWindowDpi());
 
         SetFlag(Graph->Flags, TOOLSTATUS_GRAPH_ENABLED);
         ToolbarAddGraph(Graph, width, height);
@@ -732,7 +732,7 @@ BOOLEAN CpuHistoryGraphMessageCallback(
 
             if (graph->GraphDpi == 0)
             {
-                graph->GraphDpi = SystemInformer_GetWindowDpi();
+                graph->GraphDpi = SysInform_GetWindowDpi();
                 graph->GraphColor1 = PhGetIntegerSetting(SETTING_COLOR_CPU_KERNEL);
                 graph->GraphColor2 = PhGetIntegerSetting(SETTING_COLOR_CPU_USER);
             }
@@ -836,7 +836,7 @@ BOOLEAN PhysicalHistoryGraphMessageCallback(
 
             if (graph->GraphDpi == 0)
             {
-                graph->GraphDpi = SystemInformer_GetWindowDpi();
+                graph->GraphDpi = SysInform_GetWindowDpi();
                 graph->GraphColor1 = PhGetIntegerSetting(SETTING_COLOR_PHYSICAL);
             }
 
@@ -939,7 +939,7 @@ BOOLEAN CommitHistoryGraphMessageCallback(
 
             if (graph->GraphDpi == 0)
             {
-                graph->GraphDpi = SystemInformer_GetWindowDpi();
+                graph->GraphDpi = SysInform_GetWindowDpi();
                 graph->GraphColor1 = PhGetIntegerSetting(SETTING_COLOR_PRIVATE);
             }
 
@@ -1042,7 +1042,7 @@ BOOLEAN IoHistoryGraphMessageCallback(
 
             if (graph->GraphDpi == 0)
             {
-                graph->GraphDpi = SystemInformer_GetWindowDpi();
+                graph->GraphDpi = SysInform_GetWindowDpi();
                 graph->GraphColor1 = PhGetIntegerSetting(SETTING_COLOR_IO_READ_OTHER);
                 graph->GraphColor2 = PhGetIntegerSetting(SETTING_COLOR_IO_WRITE);
             }

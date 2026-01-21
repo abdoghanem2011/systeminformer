@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -877,7 +877,7 @@ NTSTATUS PhLoadSettingsKey(
     VOID
     )
 {
-    static CONST PH_STRINGREF keyName = PH_STRINGREF_INIT(L"Software\\SystemInformer");
+    static CONST PH_STRINGREF keyName = PH_STRINGREF_INIT(L"Software\\SysInform");
     NTSTATUS status;
     HANDLE keyHandle;
 
@@ -912,7 +912,7 @@ NTSTATUS PhSaveSettingsKey(
     VOID
     )
 {
-    static CONST PH_STRINGREF keyName = PH_STRINGREF_INIT(L"Software\\SystemInformer");
+    static CONST PH_STRINGREF keyName = PH_STRINGREF_INIT(L"Software\\SysInform");
     NTSTATUS status;
     HANDLE keyHandle;
     PH_HASHTABLE_ENUM_CONTEXT enumContext;

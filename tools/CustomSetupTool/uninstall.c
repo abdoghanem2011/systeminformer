@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -259,7 +259,7 @@ VOID ShowUninstallCompletedPageDialog(
 
     config.cxWidth = 200;
     config.pszWindowTitle = PhApplicationName;
-    config.pszMainInstruction = L"System Informer has been uninstalled.";
+    config.pszMainInstruction = L"SysInform has been uninstalled.";
     if (Context->NeedsReboot)
         config.pszContent = L"A reboot is required to complete the uninstall.";
     else
@@ -284,7 +284,7 @@ VOID ShowUninstallingPageDialog(
 
     config.cxWidth = 200;
     config.pszWindowTitle = PhApplicationName;
-    config.pszMainInstruction = L"Uninstalling System Informer...";
+    config.pszMainInstruction = L"Uninstalling SysInform...";
 
     PhTaskDialogNavigatePage(Context->DialogHandle, &config);
 }
@@ -336,7 +336,7 @@ VOID ShowUninstallPageDialog(
     config.cxWidth = 200;
     config.pszWindowTitle = PhApplicationName;
     config.pszMainInstruction = PhApplicationName;
-    config.pszContent = L"Are you sure you want to uninstall System Informer?";
+    config.pszContent = L"Are you sure you want to uninstall SysInform?";
     if (PhGetOwnTokenAttributes().Elevated)
         config.pszVerificationText = L"Remove application settings";
     config.dwCommonButtons = TDCBF_CANCEL_BUTTON;

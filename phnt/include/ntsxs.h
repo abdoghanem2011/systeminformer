@@ -1,7 +1,7 @@
 /*
  * Side-by-side assembly support definitions.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  */
 
 #ifndef _NTSXS_H

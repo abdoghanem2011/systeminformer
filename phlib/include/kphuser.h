@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -19,9 +19,9 @@
 
 EXTERN_C_START
 
-#define KPH_SERVICE_NAME TEXT("KSystemInformer")
-#define KPH_OBJECT_NAME  TEXT("\\Driver\\KSystemInformer")
-#define KPH_PORT_NAME    TEXT("\\KSystemInformer")
+#define KPH_SERVICE_NAME TEXT("KSysInform")
+#define KPH_OBJECT_NAME  TEXT("\\Driver\\KSysInform")
+#define KPH_PORT_NAME    TEXT("\\KSysInform")
 
 #ifdef DEBUG
 #define KSI_COMMS_INIT_ASSERT() assert(KphMessageFreeList.Size == sizeof(KPH_MESSAGE))

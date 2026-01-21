@@ -1,7 +1,7 @@
 #
 # Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
 #
-# This file is part of System Informer.
+# This file is part of SysInform.
 #
 
 set(SI_CUSTOM_BUILD_TOOL "${SI_ROOT}/tools/CustomBuildTool/bin/Release/$ENV{PROCESSOR_ARCHITECTURE}/CustomBuildTool.exe")

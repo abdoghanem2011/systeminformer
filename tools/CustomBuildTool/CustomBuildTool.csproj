@@ -30,8 +30,8 @@
     <Version>5.0.0.0</Version>
     <Nullable>disable</Nullable>
     <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
-    <PackageProjectUrl>https://github.com/winsiderss/systeminformer</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/winsiderss/systeminformer</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/winsiderss/SysInform</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/winsiderss/SysInform</RepositoryUrl>
     <NuGetAuditMode>all</NuGetAuditMode>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Platform)'=='x86'">

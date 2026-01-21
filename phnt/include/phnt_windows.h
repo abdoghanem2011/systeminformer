@@ -1,7 +1,7 @@
 /*
  * Win32 definition support
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  */
 
 #ifndef _PHNT_WINDOWS_H

@@ -1,0 +1,35 @@
+;
+; Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
+;
+; This file is part of SysInform.
+;
+; Authors:
+;
+;     jxy-s   2022
+;
+
+.OPTION EXPLICIT
+.Set CabinetFileCountThreshold=0
+.Set FolderFileCountThreshold=0
+.Set FolderSizeThreshold=0
+.Set MaxCabinetSize=0
+.Set MaxDiskFileCount=0
+.Set MaxDiskSize=0
+.Set CompressionType=MSZIP
+.Set Cabinet=on
+.Set Compress=on
+.Set CabinetNameTemplate=KSysInform.cab
+
+.Set DestinationDir=x64
+KSysInform.inf
+Release64\SysInform.sys
+Release64\SysInform.pdb
+Release64\ksi.dll
+Release64\ksi.pdb
+
+.Set DestinationDir=arm64
+KSysInform.inf
+ReleaseARM64\SysInform.sys
+ReleaseARM64\SysInform.pdb
+ReleaseARM64\ksi.dll
+ReleaseARM64\ksi.pdb

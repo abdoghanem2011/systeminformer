@@ -56,7 +56,7 @@
           <TraceWppCmd>$(TraceWppCmd) -preserveext:.c.cpp.h.hpp</TraceWppCmd>
           <TraceWppCmd>$(TraceWppCmd) -I"$(WindowsSdkDir)bin\$(TargetPlatformVersion)\WppConfig\Rev1"</TraceWppCmd>
           <TraceWppCmd>$(TraceWppCmd) -odir:"$(IntDir)tmh"</TraceWppCmd>
-          <TraceWppCmd>$(TraceWppCmd) -scan:"$(SystemInformerRoot)phlib\include\trace.h"</TraceWppCmd>
+          <TraceWppCmd>$(TraceWppCmd) -scan:"$(SysInformRoot)phlib\include\trace.h"</TraceWppCmd>
       </PropertyGroup>
       <Exec Command="$(TraceWppCmd) @(ClInclude->'&quot;%(FullPath)&quot;', ' ') @(ClCompile->'&quot;%(FullPath)&quot;', ' ')"/>
   </Target>
@@ -141,7 +141,7 @@
           <IntrinsicFunctions>true</IntrinsicFunctions>
       </ClCompile>
       <Link>
-          <AdditionalOptions>/BREPRO /DEPENDENTLOADFLAG:0x800 /FILEALIGN:0x1000 /NOOPTIDATA /BASERELOCCLUSTERING /NATVIS:$(MSBuildThisFileDirectory)\SystemInformer.natvis %(AdditionalOptions) $(ExternalLinkerOptions)</AdditionalOptions>
+          <AdditionalOptions>/BREPRO /DEPENDENTLOADFLAG:0x800 /FILEALIGN:0x1000 /NOOPTIDATA /BASERELOCCLUSTERING /NATVIS:$(MSBuildThisFileDirectory)\SysInform.natvis %(AdditionalOptions) $(ExternalLinkerOptions)</AdditionalOptions>
           <AdditionalDependencies>invalidcontinue.obj;noarg.obj;noenv.obj;nothrownew.obj;%(AdditionalDependencies)</AdditionalDependencies>
           <MinimumRequiredVersion>6.01</MinimumRequiredVersion>
           <TargetMachine>MachineX86</TargetMachine>
@@ -170,7 +170,7 @@
           <IntrinsicFunctions>true</IntrinsicFunctions>
       </ClCompile>
       <Link>
-          <AdditionalOptions>/BREPRO /DEPENDENTLOADFLAG:0x800 /FILEALIGN:0x1000 /NOOPTIDATA /BASERELOCCLUSTERING /NATVIS:$(MSBuildThisFileDirectory)\SystemInformer.natvis %(AdditionalOptions) $(ExternalLinkerOptions)</AdditionalOptions>
+          <AdditionalOptions>/BREPRO /DEPENDENTLOADFLAG:0x800 /FILEALIGN:0x1000 /NOOPTIDATA /BASERELOCCLUSTERING /NATVIS:$(MSBuildThisFileDirectory)\SysInform.natvis %(AdditionalOptions) $(ExternalLinkerOptions)</AdditionalOptions>
           <AdditionalDependencies>invalidcontinue.obj;noarg.obj;noenv.obj;nothrownew.obj;%(AdditionalDependencies)</AdditionalDependencies>
           <MinimumRequiredVersion>6.01</MinimumRequiredVersion>
           <TargetMachine>MachineX64</TargetMachine>
@@ -200,7 +200,7 @@
           <GuardSignedReturns>true</GuardSignedReturns>
       </ClCompile>
       <Link>
-          <AdditionalOptions>/BREPRO /DEPENDENTLOADFLAG:0x800 /FILEALIGN:0x1000 /NOOPTIDATA /BASERELOCCLUSTERING /NATVIS:$(MSBuildThisFileDirectory)\SystemInformer.natvis %(AdditionalOptions) $(ExternalLinkerOptions)</AdditionalOptions>
+          <AdditionalOptions>/BREPRO /DEPENDENTLOADFLAG:0x800 /FILEALIGN:0x1000 /NOOPTIDATA /BASERELOCCLUSTERING /NATVIS:$(MSBuildThisFileDirectory)\SysInform.natvis %(AdditionalOptions) $(ExternalLinkerOptions)</AdditionalOptions>
           <AdditionalDependencies>invalidcontinue.obj;noarg.obj;noenv.obj;nothrownew.obj;%(AdditionalDependencies)</AdditionalDependencies>
           <MinimumRequiredVersion>10</MinimumRequiredVersion>
           <TargetMachine>MachineARM64</TargetMachine>

@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -74,7 +74,7 @@ PPH_UPDATER_CONTEXT CreateUpdateContext(
     context = PhCreateObjectZero(sizeof(PH_UPDATER_CONTEXT), UpdateContextType);
     context->StartupCheck = StartupCheck;
     context->Cleanup = TRUE;
-    context->PortableMode = !!SystemInformer_IsPortableMode();
+    context->PortableMode = !!SysInform_IsPortableMode();
     context->Channel = PhGetPhReleaseChannel();
 
     return context;
@@ -97,7 +97,7 @@ NTSTATUS UpdateShellExecute(
     parameters = PH_AUTO(PhCreateKsiSettingsBlob());
     parameters = PH_AUTO(PhConcatStrings(3, L"-update \"", PhGetStringOrEmpty(parameters), L"\""));
 
-    SystemInformer_PrepareForEarlyShutdown();
+    SysInform_PrepareForEarlyShutdown();
 
     status = PhShellExecuteEx(
         WindowHandle,
@@ -114,11 +114,11 @@ NTSTATUS UpdateShellExecute(
     {
         Context->Cleanup = FALSE;
 
-        SystemInformer_Destroy();
+        SysInform_Destroy();
     }
     else
     {
-        SystemInformer_CancelEarlyShutdown();
+        SysInform_CancelEarlyShutdown();
 
         if (status != STATUS_CANCELLED) // Ignore UAC decline.
         {
@@ -183,7 +183,7 @@ VOID TaskDialogLinkClicked(
 //    VOID
 //    )
 //{
-//    static PH_STRINGREF keyName = PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\SystemInformer");
+//    static PH_STRINGREF keyName = PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\SysInform");
 //    static PH_STRINGREF key2xName = PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Process_Hacker2_is1");
 //    HANDLE keyHandle = NULL;
 //
@@ -250,7 +250,7 @@ PPH_STRING UpdateVersionString(
     VOID
     )
 {
-    static const PH_STRINGREF versionHeader = PH_STRINGREF_INIT(L"SystemInformer-Build: ");
+    static const PH_STRINGREF versionHeader = PH_STRINGREF_INIT(L"SysInform-Build: ");
     ULONG majorVersion;
     ULONG minorVersion;
     ULONG buildVersion;
@@ -421,7 +421,7 @@ PPH_STRING UpdatePlatformSupportString(
     VOID
     )
 {
-    static CONST PH_STRINGREF platformHeader = PH_STRINGREF_INIT(L"SystemInformer-PlatformSupport: ");
+    static CONST PH_STRINGREF platformHeader = PH_STRINGREF_INIT(L"SysInform-PlatformSupport: ");
     static CONST UPDATER_PLATFORM_SUPPORT_ENTRY platformFiles[] =
     {
         { KPH_DYN_CLASS_NTOSKRNL, PH_STRINGREF_INIT(L"\\SystemRoot\\System32\\ntoskrnl.exe") },
@@ -503,7 +503,7 @@ PPH_STRING UpdateWindowsString(
             {
                 PH_FORMAT format[5];
 
-                PhInitFormatS(&format[0], L"SystemInformer-OsBuild: ");
+                PhInitFormatS(&format[0], L"SysInform-OsBuild: ");
                 PhInitFormatU(&format[1], HIWORD(rootBlock->dwFileVersionLS));
                 PhInitFormatC(&format[2], '.');
                 PhInitFormatU(&format[3], LOWORD(rootBlock->dwFileVersionLS));
@@ -731,8 +731,8 @@ BOOLEAN QueryUpdateDataWithFailover(
     static CONST PCWSTR Servers[] =
     {
         L"system-informer.com",
-        L"systeminformer.com",
-        L"systeminformer.sourceforge.io",
+        L"SysInform.com",
+        L"SysInform.sourceforge.io",
     };
 
     for (ULONG i = 0; i < ARRAYSIZE(Servers); i++)
@@ -784,7 +784,7 @@ NTSTATUS UpdateCheckSilentThread(
                 if (PhGetIntegerSetting(SETTING_NAME_SHOW_NOTIFICATION))
                 {
                     if (!HR_SUCCESS(PhShowIconNotificationEx(
-                        L"New version of System Informer available",
+                        L"New version of SysInform available",
                         L"Help menu > Check for updates",
                         5000,
                         NULL,
@@ -1313,7 +1313,7 @@ HRESULT CALLBACK TaskDialogBootstrapCallback(
             UpdateDialogHandle = context->DialogHandle = hwndDlg;
 
             // Center the update window on PH if it's visible else we center on the desktop.
-            PhCenterWindow(hwndDlg, SystemInformer_GetWindowHandle());
+            PhCenterWindow(hwndDlg, SysInform_GetWindowHandle());
 
             // Create the Taskdialog icons.
             PhSetApplicationWindowIconEx(hwndDlg, PhGetWindowDpi(hwndDlg));
@@ -1481,7 +1481,7 @@ VOID ShowStartupUpdateDialog(
     if (PhGetIntegerSetting(SETTING_NAME_SHOW_NOTIFICATION))
     {
         if (HR_SUCCESS(PhShowIconNotificationEx(
-            L"New version of System Informer available",
+            L"New version of SysInform available",
             L"Help menu > Check for updates",
             5000,
             NULL,

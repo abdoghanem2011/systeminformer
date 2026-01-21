@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -68,7 +68,7 @@ VOID ShowAvailableDialog(
     config.lpCallbackData = (LONG_PTR)Context;
     config.pfCallback = ShowAvailableCallbackProc;
 
-    config.pszWindowTitle = L"System Informer - Updater";
+    config.pszWindowTitle = L"SysInform - Updater";
     if (Context->SwitchingChannel)
     {
         switch (Context->Channel)
@@ -92,7 +92,7 @@ VOID ShowAvailableDialog(
     }
     else
     {
-        config.pszMainInstruction = L"A newer build of System Informer is available.";
+        config.pszMainInstruction = L"A newer build of SysInform is available.";
     }
 
     config.pszContent = PhaFormatString(L"Version: %s\r\nDownload size: %s\r\n\r\n<A HREF=\"changelog.txt\">View changelog</A>",

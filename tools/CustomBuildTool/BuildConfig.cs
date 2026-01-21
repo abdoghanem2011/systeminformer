@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2022 Winsider Seminars & Solutions, Inc.  All rights reserved.
  *
- * This file is part of System Informer.
+ * This file is part of SysInform.
  *
  * Authors:
  *
@@ -12,7 +12,7 @@
 namespace CustomBuildTool
 {
     /// <summary>
-    /// Defines build configuration constants for the System Informer custom build tool.
+    /// Defines build configuration constants for the SysInform custom build tool.
     /// </summary>
     /// <remarks>
     /// This class contains static read-only collections that configure various aspects of the build process,
@@ -116,7 +116,7 @@ namespace CustomBuildTool
         /// <summary>
         /// An immutable array containing the header filenames for the phlib library build.
         /// This collection includes header files for various system information, UI components,
-        /// and utility functions used throughout the System Informer project and are merged into
+        /// and utility functions used throughout the SysInform project and are merged into
         /// the SDK for plugins and extensions.
         /// </summary>
         public static readonly ImmutableArray<string> Build_Phlib_Headers =
@@ -171,7 +171,7 @@ namespace CustomBuildTool
         ];
 
         /// <summary>
-        /// An immutable array containing the header filenames for the kphlib (Kernel System Informer) library build.
+        /// An immutable array containing the header filenames for the kphlib (Kernel SysInform) library build.
         /// </summary>
         /// <remarks>
         public static readonly ImmutableArray<string> Build_Kphlib_Headers =
